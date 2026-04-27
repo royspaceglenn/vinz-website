@@ -1,0 +1,2708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Adsidi.co — Your Business, Elevated</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ─── RESET & BASE ─────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bp:#F15A24;--bl:#F5895A;--bd:#C43E10;
+  --lbg:#FDF5EF;--lbr:#EDE0D4;--dbg:#1C110B;
+  --dark:#0F0905;--white:#fff;
+  --grad:linear-gradient(135deg,#C43E10 0%,#F15A24 55%,#F5895A 100%);
+  --sans:'Plus Jakarta Sans',sans-serif;
+  --nav-h:72px;
+}
+html{scroll-behavior:smooth;font-family:var(--sans);}
+body{background:#fff;color:#1C110B;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;}
+section{padding:96px 0;}
+.container{max-width:1160px;margin:0 auto;padding:0 32px;}
+
+/* ─── UTILITY ─────────────────────────────────── */
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:2.5px;
+     text-transform:uppercase;}
+.tag--orange{color:var(--bp);}
+.tag--light{color:var(--bl);}
+.tag--muted{color:rgba(255,255,255,0.55);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;
+     border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;
+     transition:all .2s ease;border:none;font-family:var(--sans);}
+.btn--primary{background:var(--grad);color:#fff;
+  box-shadow:0 4px 24px rgba(241,90,36,0.35);}
+.btn--primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(241,90,36,0.45);}
+.btn--outline{background:transparent;color:#fff;
+  border:1.5px solid rgba(255,255,255,0.4);}
+.btn--outline:hover{background:rgba(255,255,255,0.08);}
+.btn--dark{background:var(--dbg);color:#fff;}
+.btn--dark:hover{background:#2a1a10;}
+.btn--ghost{background:rgba(241,90,36,0.1);color:var(--bp);
+  border:1.5px solid rgba(241,90,36,0.25);}
+.btn--ghost:hover{background:rgba(241,90,36,0.18);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ─── NAVBAR ─────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;
+     height:var(--nav-h);
+     display:flex;align-items:center;
+     background:rgba(15,9,5,0.75);
+     backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+     border-bottom:1px solid rgba(255,255,255,0.06);
+     transition:background .3s,box-shadow .3s;}
+.nav.scrolled{background:rgba(15,9,5,0.97);
+  box-shadow:0 4px 32px rgba(0,0,0,0.4);}
+.nav .container{width:100%;}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;
+  width:100%;gap:24px;}
+.nav__logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0;}
+.nav__logo-icon{width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:var(--grad);display:flex;align-items:center;justify-content:center;}
+.nav__logo-text{font-size:16px;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+.nav__logo-text span{color:var(--bl);}
+.nav__links{display:flex;align-items:center;gap:28px;flex:1;justify-content:center;}
+.nav__link{font-size:13px;font-weight:600;color:rgba(255,255,255,0.65);
+  transition:color .2s;cursor:pointer;letter-spacing:0.2px;
+  padding:6px 0;border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;white-space:nowrap;}
+.nav__link:hover{color:#fff;border-bottom-color:rgba(241,90,36,0.6);}
+.nav__cta{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.nav__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav__burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s;}
+
+/* ─── HERO ─────────────────────────────────── */
+.hero{min-height:100vh;background:var(--dark);
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;padding-top:var(--nav-h);}
+.hero__bg-glow{position:absolute;pointer-events:none;}
+.hero__bg-glow--1{top:-120px;right:-80px;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(241,90,36,0.22) 0%,transparent 65%);}
+.hero__bg-glow--2{bottom:-100px;left:-100px;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(196,62,16,0.15) 0%,transparent 65%);}
+.hero__grid-bg{position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(241,90,36,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(241,90,36,0.04) 1px,transparent 1px);
+  background-size:60px 60px;}
+.hero__content{position:relative;z-index:2;padding:80px 0 60px;}
+.hero__eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+.hero__eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--bp);
+  box-shadow:0 0 12px rgba(241,90,36,0.7);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.hero__headline{font-size:clamp(42px,6vw,76px);font-weight:800;color:#fff;
+  line-height:1.0;letter-spacing:-1.5px;margin-bottom:24px;}
+.hero__headline em{font-style:normal;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero__sub{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.65;
+  max-width:520px;margin-bottom:44px;font-weight:400;}
+.hero__actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:64px;}
+.hero__stats{display:flex;gap:48px;flex-wrap:wrap;}
+.hero__stat-num{font-size:32px;font-weight:800;color:#fff;line-height:1;}
+.hero__stat-num span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero__stat-label{font-size:12px;color:rgba(255,255,255,0.45);
+  font-weight:500;margin-top:4px;letter-spacing:0.3px;}
+
+/* Trusted by */
+.trusted{background:var(--dark);padding:0 0 80px;}
+.trusted__label{font-size:11px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,0.3);
+  text-align:center;margin-bottom:28px;}
+.trusted__logos{display:flex;align-items:center;justify-content:center;
+  gap:40px;flex-wrap:wrap;}
+.trusted__logo{opacity:0.3;filter:brightness(0) invert(1);
+  transition:opacity .2s;display:flex;align-items:center;gap:8px;}
+.trusted__logo:hover{opacity:0.6;}
+.trusted__logo-icon{width:28px;height:28px;}
+.trusted__logo-name{font-size:15px;font-weight:700;color:#fff;white-space:nowrap;}
+
+/* ─── HOW IT WORKS ─────────────────────────── */
+.hiw{background:#fff;}
+.section-header{text-align:center;margin-bottom:64px;}
+.section-header .tag{margin-bottom:14px;display:block;}
+.section-title{font-size:clamp(28px,4vw,44px);font-weight:800;
+  color:var(--dbg);line-height:1.1;letter-spacing:-0.8px;margin-bottom:16px;}
+.section-sub{font-size:16px;color:#7A6558;max-width:520px;margin:0 auto;line-height:1.65;}
+.hiw__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.hiw__step{padding:36px 32px;border-radius:20px;border:1.5px solid var(--lbr);
+  position:relative;background:#fff;transition:border-color .2s,box-shadow .2s;}
+.hiw__step:hover{border-color:var(--bp);box-shadow:0 8px 40px rgba(241,90,36,0.1);}
+.hiw__step-num{font-size:11px;font-weight:700;letter-spacing:2px;
+  color:var(--bp);margin-bottom:20px;display:block;}
+.hiw__step-icon{width:48px;height:48px;border-radius:12px;
+  background:rgba(241,90,36,0.1);display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;}
+.hiw__step-title{font-size:18px;font-weight:700;color:var(--dbg);margin-bottom:10px;}
+.hiw__step-text{font-size:14px;color:#7A6558;line-height:1.65;}
+.hiw__connector{position:absolute;top:56px;right:-13px;
+  width:26px;height:2px;background:var(--lbr);z-index:1;}
+
+/* ─── SERVICES ─────────────────────────────── */
+.services{background:var(--lbg);}
+.services__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;}
+.svc-card{border-radius:24px;padding:44px 40px;cursor:pointer;
+  transition:transform .25s ease,box-shadow .25s ease;
+  position:relative;overflow:hidden;}
+.svc-card--dark{background:var(--dbg);}
+.svc-card--gradient{background:var(--grad);}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.2);}
+.svc-card__icon{width:56px;height:56px;border-radius:14px;
+  background:rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;margin-bottom:28px;}
+.svc-card__label{font-size:10px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--bl);margin-bottom:12px;display:block;}
+.svc-card__title{font-size:26px;font-weight:800;color:#fff;
+  line-height:1.1;letter-spacing:-0.4px;margin-bottom:14px;}
+.svc-card__text{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;margin-bottom:28px;}
+.svc-card__tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+.svc-tag{padding:5px 12px;border-radius:20px;
+  background:rgba(255,255,255,0.1);
+  font-size:11px;font-weight:600;color:rgba(255,255,255,0.8);}
+.svc-card__arrow{width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s;}
+.svc-card:hover .svc-card__arrow{background:rgba(255,255,255,0.28);}
+.services__cta-row{display:flex;align-items:center;justify-content:center;gap:16px;
+  padding:36px;background:#fff;border-radius:20px;border:1.5px solid var(--lbr);}
+.services__cta-text{font-size:15px;font-weight:600;color:var(--dbg);}
+.services__cta-sub{font-size:13px;color:#7A6558;margin-top:2px;}
+
+/* ─── ABOUT ─────────────────────────────────── */
+.about{background:#fff;}
+.about__grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about__visual{position:relative;}
+.about__img-wrap{border-radius:24px;overflow:hidden;background:var(--dbg);
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;}
+.about__badge{position:absolute;bottom:-20px;right:-20px;
+  background:#fff;border-radius:16px;padding:16px 20px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.12);display:flex;align-items:center;gap:12px;}
+.about__badge-icon{width:40px;height:40px;border-radius:10px;background:var(--grad);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.about__badge-num{font-size:20px;font-weight:800;color:var(--dbg);}
+.about__badge-label{font-size:11px;color:#7A6558;font-weight:500;}
+.about__text .tag{margin-bottom:14px;display:block;}
+.about__title{font-size:clamp(26px,3vw,40px);font-weight:800;color:var(--dbg);
+  line-height:1.1;letter-spacing:-0.6px;margin-bottom:20px;}
+.about__body{font-size:15px;color:#5A4A42;line-height:1.75;margin-bottom:32px;}
+.about__pillars{display:flex;flex-direction:column;gap:16px;margin-bottom:36px;}
+.pillar{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;
+  border-radius:12px;background:var(--lbg);border:1px solid var(--lbr);}
+.pillar__icon{width:36px;height:36px;border-radius:8px;background:var(--grad);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.pillar__title{font-size:13px;font-weight:700;color:var(--dbg);margin-bottom:3px;}
+.pillar__text{font-size:12px;color:#7A6558;line-height:1.5;}
+
+/* ─── MEET THE TEAM ─────────────────────────── */
+.structure{background:var(--dbg);}
+.structure .section-title{color:#fff;}
+.structure .section-sub{color:rgba(255,255,255,0.5);}
+.structure .tag{color:var(--bl);}
+
+/* Featured CEO card */
+.team-ceo{display:grid;grid-template-columns:1fr 1fr;gap:32px;
+  margin-bottom:40px;align-items:center;}
+.team-ceo__card{background:var(--grad);border-radius:24px;padding:40px;
+  display:flex;flex-direction:column;align-items:flex-start;position:relative;overflow:hidden;}
+.team-ceo__watermark{position:absolute;bottom:-24px;right:-24px;opacity:0.08;pointer-events:none;}
+.team-ceo__avatar{width:80px;height:80px;border-radius:50%;
+  background:rgba(255,255,255,0.2);border:3px solid rgba(255,255,255,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:800;color:#fff;margin-bottom:20px;flex-shrink:0;}
+.team-ceo__badge{display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:20px;background:rgba(255,255,255,0.15);
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.9);margin-bottom:14px;}
+.team-ceo__name{font-size:26px;font-weight:800;color:#fff;
+  line-height:1.1;letter-spacing:-0.4px;margin-bottom:8px;}
+.team-ceo__title{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);margin-bottom:16px;}
+.team-ceo__bio{font-size:14px;color:rgba(255,255,255,0.8);line-height:1.65;margin-bottom:24px;}
+.team-ceo__social{display:flex;gap:10px;}
+.team-social-btn{width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s;}
+.team-social-btn:hover{background:rgba(255,255,255,0.28);}
+
+/* CEO quote block */
+.team-ceo__quote{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;padding:36px;}
+.team-ceo__quote-mark{font-size:56px;font-weight:800;color:var(--bp);
+  line-height:0.8;margin-bottom:16px;display:block;font-family:Georgia,serif;}
+.team-ceo__quote-text{font-size:18px;font-weight:600;color:#fff;
+  line-height:1.55;font-style:italic;margin-bottom:20px;}
+.team-ceo__quote-attr{font-size:12px;color:rgba(255,255,255,0.45);font-weight:500;}
+
+/* Team grid */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.team-card{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.04);transition:transform .25s,border-color .25s,background .25s;}
+.team-card:hover{transform:translateY(-5px);border-color:rgba(241,90,36,0.35);
+  background:rgba(255,255,255,0.07);}
+.team-card__top{padding:28px 24px 20px;display:flex;align-items:flex-start;gap:16px;}
+.team-avatar{width:56px;height:56px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:800;color:#fff;border:2px solid rgba(255,255,255,0.15);}
+.team-card__dept{display:inline-flex;align-items:center;gap:5px;margin-bottom:6px;
+  padding:3px 10px;border-radius:20px;background:rgba(241,90,36,0.15);
+  border:1px solid rgba(241,90,36,0.25);
+  font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--bl);}
+.team-card__name{font-size:15px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:3px;}
+.team-card__title{font-size:12px;color:rgba(255,255,255,0.5);font-weight:500;}
+.team-card__bio{padding:0 24px 20px;font-size:13px;color:rgba(255,255,255,0.6);
+  line-height:1.65;border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;margin:0 24px;}
+.team-card__footer{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
+.team-card__social{display:flex;gap:8px;}
+.team-partner-tag{padding:4px 10px;border-radius:20px;
+  background:rgba(245,137,90,0.15);border:1px solid rgba(245,137,90,0.25);
+  font-size:10px;font-weight:600;color:var(--bl);}
+
+@media(max-width:900px){
+  .team-ceo{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .team-grid{grid-template-columns:1fr;}
+}
+
+/* ─── ELITE VAs ─────────────────────────────── */
+.eliteva{background:var(--lbg);}
+.va-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.va-card{background:#fff;border-radius:20px;overflow:hidden;
+  border:1.5px solid var(--lbr);
+  transition:transform .25s,box-shadow .25s;}
+.va-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,0.1);}
+.va-card__header{padding:28px 24px 20px;display:flex;align-items:flex-start;gap:16px;}
+.va-avatar{width:56px;height:56px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:800;color:#fff;}
+.va-card__name{font-size:16px;font-weight:700;color:var(--dbg);line-height:1.2;}
+.va-card__role{font-size:12px;color:var(--bp);font-weight:600;margin-top:3px;}
+.va-card__avail{display:inline-flex;align-items:center;gap:5px;margin-top:6px;
+  padding:3px 9px;border-radius:20px;background:rgba(39,174,96,0.1);
+  font-size:10px;font-weight:600;color:#27AE60;}
+.va-avail-dot{width:5px;height:5px;border-radius:50%;background:#27AE60;}
+.va-card__skills{padding:0 24px 20px;display:flex;flex-wrap:wrap;gap:6px;}
+.va-skill{padding:4px 10px;border-radius:20px;background:var(--lbg);
+  border:1px solid var(--lbr);font-size:10px;font-weight:600;color:#5A4A42;}
+.va-card__footer{padding:16px 24px;border-top:1px solid var(--lbr);
+  display:flex;justify-content:space-between;align-items:center;}
+.va-card__rate{font-size:12px;color:#7A6558;}
+.va-card__rate strong{font-size:15px;font-weight:700;color:var(--dbg);}
+.va-card__btn{padding:8px 18px;border-radius:20px;background:var(--grad);
+  color:#fff;font-size:12px;font-weight:700;cursor:pointer;border:none;
+  font-family:var(--sans);transition:opacity .2s;}
+.va-card__btn:hover{opacity:.85;}
+
+/* ─── APPLICANT CTA ─────────────────────────── */
+.apply-cta{background:var(--dbg);text-align:center;}
+.apply-cta__inner{background:var(--grad);border-radius:28px;padding:72px 48px;}
+.apply-cta__title{font-size:clamp(26px,3.5vw,44px);font-weight:800;color:#fff;
+  line-height:1.1;letter-spacing:-0.8px;margin-bottom:16px;}
+.apply-cta__sub{font-size:16px;color:rgba(255,255,255,0.8);margin-bottom:36px;line-height:1.65;}
+.apply-cta__actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+
+/* ─── FOOTER ─────────────────────────────────── */
+.footer{background:var(--dark);padding:64px 0 32px;}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
+.footer__brand-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.footer__brand-icon{width:36px;height:36px;border-radius:50%;background:var(--grad);
+  display:flex;align-items:center;justify-content:center;}
+.footer__brand-name{font-size:16px;font-weight:800;color:#fff;}
+.footer__brand-name span{color:var(--bl);}
+.footer__desc{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;margin-bottom:24px;}
+.footer__social{display:flex;gap:10px;}
+.footer__social-btn{width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s;}
+.footer__social-btn:hover{background:rgba(241,90,36,0.2);}
+.footer__col-title{font-size:12px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:20px;}
+.footer__link{display:block;font-size:13px;color:rgba(255,255,255,0.55);
+  margin-bottom:12px;cursor:pointer;transition:color .2s;}
+.footer__link:hover{color:#fff;}
+.footer__bottom{border-top:1px solid rgba(255,255,255,0.07);
+  padding-top:28px;display:flex;justify-content:space-between;align-items:center;}
+.footer__copy{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer__copy span{color:var(--bl);}
+
+/* ─── MODAL ─────────────────────────────────── */
+.modal-overlay{position:fixed;inset:0;z-index:2000;
+  background:rgba(15,9,5,0.85);backdrop-filter:blur(8px);
+  display:none;align-items:center;justify-content:center;padding:24px;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:28px;max-width:520px;width:100%;
+  overflow:hidden;animation:modalIn .3s ease;}
+@keyframes modalIn{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:scale(1);}}
+.modal__header{background:var(--dbg);padding:32px 36px;}
+.modal__header-tag{font-size:10px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--bl);margin-bottom:8px;display:block;}
+.modal__header-title{font-size:22px;font-weight:800;color:#fff;line-height:1.2;}
+.modal__header-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-top:6px;}
+.modal__body{padding:32px 36px;}
+.modal__question{font-size:16px;font-weight:700;color:var(--dbg);margin-bottom:20px;}
+.modal__options{display:flex;flex-direction:column;gap:12px;}
+.modal__option{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;
+  border-radius:14px;border:1.5px solid var(--lbr);cursor:pointer;
+  transition:border-color .2s,background .2s;}
+.modal__option:hover{border-color:var(--bp);background:var(--lbg);}
+.modal__option.selected{border-color:var(--bp);background:var(--lbg);}
+.modal__option-icon{width:40px;height:40px;border-radius:10px;
+  background:rgba(241,90,36,0.1);display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;}
+.modal__option-title{font-size:14px;font-weight:700;color:var(--dbg);margin-bottom:3px;}
+.modal__option-text{font-size:12px;color:#7A6558;line-height:1.5;}
+.modal__footer{padding:0 36px 32px;display:flex;gap:12px;}
+.modal__close{position:absolute;top:16px;right:20px;
+  width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);
+  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.modal__header{position:relative;}
+
+/* ─── MOBILE NAV ─────────────────────────────── */
+.mobile-menu{display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(15,9,5,0.98);flex-direction:column;align-items:center;
+  justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu .nav__link{font-size:22px;font-weight:700;color:rgba(255,255,255,0.8);}
+
+/* ─── RESPONSIVE ─────────────────────────────── */
+@media(max-width:900px){
+  .hiw__steps{grid-template-columns:1fr;}
+  .services__grid{grid-template-columns:1fr;}
+  .about__grid{grid-template-columns:1fr;}
+  .about__visual{display:none;}
+  .va-grid{grid-template-columns:1fr 1fr;}
+  .footer__grid{grid-template-columns:1fr 1fr;}
+  .org-row{flex-wrap:wrap;}
+}
+@media(max-width:640px){
+  section{padding:64px 0;}
+  .nav__links,.nav__cta{display:none;}
+  .nav__burger{display:flex;}
+  .va-grid{grid-template-columns:1fr;}
+  .footer__grid{grid-template-columns:1fr;}
+  .hero__headline{font-size:38px;}
+  .services__cta-row{flex-direction:column;text-align:center;}
+}
+
+/* ─── PORTFOLIO OVERLAY — CSS VARIABLE SYSTEM ─── */
+.portfolio-overlay{
+  /* Default: Ember Dark */
+  --pt-primary:#F15A24; --pt-light:#F5895A; --pt-dark:#C43E10;
+  --pt-grad:linear-gradient(135deg,#C43E10 0%,#F15A24 55%,#F5895A 100%);
+  --pt-bg:#0F0905; --pt-hero-bg:#0A0603; --pt-bg-alt:rgba(255,255,255,0.025);
+  --pt-card:rgba(255,255,255,0.04); --pt-border:rgba(255,255,255,0.08);
+  --pt-heading:#fff; --pt-text:rgba(255,255,255,0.72); --pt-muted:rgba(255,255,255,0.45);
+  --pt-topbar:rgba(15,9,5,0.92); --pt-topbar-border:rgba(255,255,255,0.06);
+  --pt-back:rgba(255,255,255,0.65); --pt-back-hover:#fff;
+  --pt-inp-bg:rgba(255,255,255,0.05); --pt-inp-border:rgba(255,255,255,0.1); --pt-inp-text:#fff;
+  --pt-inp-ph:rgba(255,255,255,0.3);
+  --pt-exp-bg:rgba(255,255,255,0.03); --pt-exp-border:rgba(255,255,255,0.07);
+  --pt-divider:rgba(255,255,255,0.06);
+  --pt-skill-bg:rgba(255,255,255,0.05); --pt-skill-text:rgba(255,255,255,0.8);
+  --pt-feat-border:rgba(255,255,255,0.06);
+  --pt-contact-label:rgba(255,255,255,0.4);
+  --pt-social-bg:rgba(255,255,255,0.07); --pt-social-border:rgba(255,255,255,0.12);
+  --pt-out-bg:rgba(255,255,255,0.04); --pt-out-border:rgba(255,255,255,0.08);
+  --pt-out-text:rgba(255,255,255,0.55);
+  --pt-cust-bg:rgba(15,9,5,0.98);
+
+  position:fixed;inset:0;z-index:3000;
+  background:var(--pt-bg);overflow-y:auto;
+  transform:translateX(100%);
+  transition:transform .42s cubic-bezier(0.4,0,0.2,1);
+}
+.portfolio-overlay.open{transform:translateX(0);}
+
+/* ── Light mode ─────────────────────────────── */
+.portfolio-overlay.port-light{
+  --pt-bg:#F8F4F1; --pt-hero-bg:#EDE0D4; --pt-bg-alt:rgba(0,0,0,0.025);
+  --pt-card:rgba(255,255,255,0.85); --pt-border:rgba(28,17,11,0.1);
+  --pt-heading:#1C110B; --pt-text:rgba(28,17,11,0.72); --pt-muted:rgba(28,17,11,0.45);
+  --pt-topbar:rgba(248,244,241,0.95); --pt-topbar-border:rgba(28,17,11,0.1);
+  --pt-back:rgba(28,17,11,0.6); --pt-back-hover:#1C110B;
+  --pt-inp-bg:rgba(255,255,255,0.9); --pt-inp-border:rgba(28,17,11,0.15); --pt-inp-text:#1C110B;
+  --pt-inp-ph:rgba(28,17,11,0.3);
+  --pt-exp-bg:rgba(255,255,255,0.7); --pt-exp-border:rgba(28,17,11,0.07);
+  --pt-divider:rgba(28,17,11,0.08);
+  --pt-skill-bg:rgba(255,255,255,0.8); --pt-skill-text:rgba(28,17,11,0.75);
+  --pt-feat-border:rgba(28,17,11,0.07);
+  --pt-contact-label:rgba(28,17,11,0.4);
+  --pt-social-bg:rgba(0,0,0,0.05); --pt-social-border:rgba(28,17,11,0.12);
+  --pt-out-bg:rgba(255,255,255,0.7); --pt-out-border:rgba(28,17,11,0.1);
+  --pt-out-text:rgba(28,17,11,0.5);
+  --pt-cust-bg:rgba(248,244,241,0.98);
+}
+
+/* ── Color themes ───────────────────────────── */
+.portfolio-overlay.theme-ember{--pt-primary:#F15A24;--pt-light:#F5895A;--pt-dark:#C43E10;--pt-grad:linear-gradient(135deg,#C43E10 0%,#F15A24 55%,#F5895A 100%);}
+.portfolio-overlay.theme-ocean{--pt-primary:#0EA5E9;--pt-light:#38BDF8;--pt-dark:#0369A1;--pt-grad:linear-gradient(135deg,#0369A1 0%,#0EA5E9 55%,#38BDF8 100%);}
+.portfolio-overlay.theme-violet{--pt-primary:#8B5CF6;--pt-light:#A78BFA;--pt-dark:#6D28D9;--pt-grad:linear-gradient(135deg,#6D28D9 0%,#8B5CF6 55%,#A78BFA 100%);}
+.portfolio-overlay.theme-emerald{--pt-primary:#10B981;--pt-light:#34D399;--pt-dark:#047857;--pt-grad:linear-gradient(135deg,#047857 0%,#10B981 55%,#34D399 100%);}
+.portfolio-overlay.theme-rose{--pt-primary:#F43F5E;--pt-light:#FB7185;--pt-dark:#BE123C;--pt-grad:linear-gradient(135deg,#BE123C 0%,#F43F5E 55%,#FB7185 100%);}
+.portfolio-overlay.theme-amber{--pt-primary:#F59E0B;--pt-light:#FCD34D;--pt-dark:#B45309;--pt-grad:linear-gradient(135deg,#B45309 0%,#F59E0B 55%,#FCD34D 100%);}
+.portfolio-overlay.theme-indigo{--pt-primary:#6366F1;--pt-light:#818CF8;--pt-dark:#4338CA;--pt-grad:linear-gradient(135deg,#4338CA 0%,#6366F1 55%,#818CF8 100%);}
+.portfolio-overlay.theme-teal{--pt-primary:#14B8A6;--pt-light:#2DD4BF;--pt-dark:#0F766E;--pt-grad:linear-gradient(135deg,#0F766E 0%,#14B8A6 55%,#2DD4BF 100%);}
+
+/* ── Components ─────────────────────────────── */
+.port-topbar{
+  position:sticky;top:0;z-index:10;height:64px;
+  background:var(--pt-topbar);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--pt-topbar-border);
+  display:flex;align-items:center;justify-content:space-between;padding:0 32px;
+}
+.port-back{
+  display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+  color:var(--pt-back);cursor:pointer;transition:color .2s;
+  background:none;border:none;font-family:var(--sans);
+}
+.port-back:hover{color:var(--pt-back-hover);}
+.port-hero{
+  background:var(--pt-hero-bg);padding:72px 0 80px;position:relative;overflow:hidden;
+}
+.port-hero__grid{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;}
+.port-hero__avatar-wrap{position:relative;flex-shrink:0;}
+.port-hero__avatar{
+  width:160px;height:160px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:56px;font-weight:800;color:#fff;
+  border:4px solid rgba(var(--pt-primary-rgb,241,90,36),0.4);
+  box-shadow:0 0 60px rgba(var(--pt-primary-rgb,241,90,36),0.2);
+}
+.port-hero__avail{
+  position:absolute;bottom:6px;right:6px;
+  padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;color:#fff;white-space:nowrap;
+}
+.port-hero__tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pt-primary);margin-bottom:12px;display:block;}
+.port-hero__name{font-size:clamp(36px,5vw,60px);font-weight:800;color:var(--pt-heading);line-height:1;letter-spacing:-1px;margin-bottom:8px;}
+.port-hero__title{font-size:16px;color:var(--pt-muted);margin-bottom:20px;}
+.port-hero__tagline{font-size:16px;color:var(--pt-text);line-height:1.65;max-width:480px;margin-bottom:32px;font-style:italic;}
+.port-hero__actions{display:flex;gap:12px;flex-wrap:wrap;}
+.port-section{padding:72px 0;background:var(--pt-bg);}
+.port-section--alt{background:var(--pt-bg-alt);}
+.port-section-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pt-primary);margin-bottom:12px;display:block;}
+.port-section-title{font-size:30px;font-weight:800;color:var(--pt-heading);letter-spacing:-0.5px;margin-bottom:40px;line-height:1.1;}
+.port-about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.port-about-card{background:var(--pt-card);border:1px solid var(--pt-border);border-radius:16px;padding:28px 24px;transition:border-color .2s;}
+.port-about-card:hover{border-color:var(--pt-primary);}
+.port-about-card__icon{width:44px;height:44px;border-radius:10px;background:var(--pt-card);border:1px solid var(--pt-border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.port-about-card__label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pt-light);margin-bottom:10px;}
+.port-about-card__text{font-size:14px;color:var(--pt-text);line-height:1.65;}
+.port-exp-list{display:flex;flex-direction:column;gap:20px;}
+.port-exp-card{padding:24px 28px;background:var(--pt-exp-bg);border:1px solid var(--pt-exp-border);border-left:3px solid var(--pt-primary);border-radius:0 14px 14px 0;}
+.port-exp-year{font-size:11px;font-weight:600;color:var(--pt-primary);letter-spacing:0.5px;margin-bottom:6px;}
+.port-exp-role{font-size:17px;font-weight:700;color:var(--pt-heading);margin-bottom:2px;}
+.port-exp-company{font-size:13px;color:var(--pt-muted);margin-bottom:10px;}
+.port-exp-desc{font-size:14px;color:var(--pt-text);line-height:1.6;}
+.port-skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.port-skill-pill{padding:10px 16px;background:var(--pt-skill-bg);border:1px solid var(--pt-border);border-radius:10px;font-size:13px;font-weight:600;color:var(--pt-skill-text);text-align:center;transition:border-color .2s,background .2s;}
+.port-skill-pill:hover{border-color:var(--pt-primary);background:var(--pt-card);}
+.port-pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.port-pkg{border-radius:20px;padding:32px 28px;background:var(--pt-card);border:1.5px solid var(--pt-border);transition:border-color .2s,transform .2s;position:relative;}
+.port-pkg:hover{border-color:var(--pt-primary);transform:translateY(-4px);}
+.port-pkg--featured{border-color:var(--pt-primary);}
+.port-pkg__badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);padding:4px 14px;border-radius:20px;background:var(--pt-grad);font-size:10px;font-weight:700;color:#fff;white-space:nowrap;letter-spacing:1px;}
+.port-pkg__name{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pt-primary);margin-bottom:16px;}
+.port-pkg__price{font-size:36px;font-weight:800;color:var(--pt-heading);line-height:1;margin-bottom:4px;}
+.port-pkg__desc{font-size:13px;color:var(--pt-muted);margin-bottom:20px;line-height:1.5;}
+.port-pkg__features{list-style:none;margin-bottom:28px;}
+.port-pkg__features li{font-size:13px;color:var(--pt-text);padding:8px 0;border-bottom:1px solid var(--pt-feat-border);display:flex;align-items:center;gap:10px;}
+.port-pkg__features li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--pt-primary);flex-shrink:0;}
+.port-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.port-form{display:flex;flex-direction:column;gap:16px;}
+.port-input{width:100%;padding:14px 18px;background:var(--pt-inp-bg);border:1px solid var(--pt-inp-border);border-radius:12px;font-size:14px;color:var(--pt-inp-text);font-family:var(--sans);outline:none;transition:border-color .2s;}
+.port-input:focus{border-color:var(--pt-primary);}
+.port-input::placeholder{color:var(--pt-inp-ph);}
+textarea.port-input{resize:vertical;min-height:120px;}
+.port-contact-info{display:flex;flex-direction:column;gap:20px;}
+.port-contact-item{display:flex;align-items:flex-start;gap:14px;}
+.port-contact-icon{width:40px;height:40px;border-radius:10px;background:var(--pt-card);border:1px solid var(--pt-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--pt-primary);}
+.port-about-card__icon{color:var(--pt-primary);}
+/* ── Portfolio-scoped button overrides ── */
+.portfolio-overlay .btn--primary{background:var(--pt-grad);box-shadow:0 4px 24px color-mix(in srgb,var(--pt-primary) 35%,transparent);}
+.portfolio-overlay .btn--primary:hover{box-shadow:0 8px 32px color-mix(in srgb,var(--pt-primary) 45%,transparent);}
+.portfolio-overlay .btn--ghost{background:color-mix(in srgb,var(--pt-primary) 10%,transparent);color:var(--pt-primary);border-color:color-mix(in srgb,var(--pt-primary) 25%,transparent);}
+.portfolio-overlay .btn--ghost:hover{background:color-mix(in srgb,var(--pt-primary) 18%,transparent);}
+/* ── Hero decoration classes ── */
+.port-hero__deco1{position:absolute;top:-100px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--pt-primary) 15%,transparent) 0%,transparent 65%);pointer-events:none;}
+.port-hero__deco2{position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--pt-dark) 10%,transparent) 0%,transparent 65%);pointer-events:none;}
+.port-hero__grid-bg{position:absolute;inset:0;background-image:linear-gradient(color-mix(in srgb,var(--pt-primary) 3%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--pt-primary) 3%,transparent) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+/* ── Strategy call box ── */
+.port-strat-box{background:rgba(255,255,255,0.03);border:1.5px solid color-mix(in srgb,var(--pt-primary) 20%,transparent);border-radius:24px;padding:48px;text-align:center;max-width:560px;margin:0 auto;}
+.port-strat-icon{width:64px;height:64px;border-radius:50%;background:color-mix(in srgb,var(--pt-primary) 12%,transparent);border:1.5px solid color-mix(in srgb,var(--pt-primary) 25%,transparent);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--pt-primary);}
+/* ── Portfolio footer ── */
+.port-footer{background:var(--pt-bg);padding:28px 0;border-top:1px solid var(--pt-divider);text-align:center;}
+.port-footer__credit{font-size:12px;color:var(--pt-muted);margin-bottom:14px;}
+.port-footer__credit span{color:var(--pt-light);}
+.port-contact-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--pt-contact-label);margin-bottom:4px;}
+.port-contact-value{font-size:14px;color:var(--pt-text);font-weight:500;}
+.port-social-row{display:flex;gap:10px;margin-top:8px;}
+.port-social-btn{width:40px;height:40px;border-radius:50%;background:var(--pt-social-bg);border:1px solid var(--pt-social-border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.port-social-btn:hover{background:var(--pt-primary);border-color:var(--pt-primary);}
+
+/* ── Outputs section ────────────────────────── */
+.port-outputs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.port-output-card{border-radius:16px;overflow:hidden;border:1px solid var(--pt-out-border);background:var(--pt-out-bg);transition:transform .25s,box-shadow .25s;cursor:pointer;}
+.port-output-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,0.25);}
+.port-output-thumb{height:160px;position:relative;display:flex;align-items:center;justify-content:center;}
+.port-output-play{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;}
+.port-output-type{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:20px;background:rgba(0,0,0,0.45);backdrop-filter:blur(8px);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.9);}
+.port-output-body{padding:14px 16px;}
+.port-output-title{font-size:14px;font-weight:700;color:var(--pt-heading);margin-bottom:4px;}
+.port-output-caption{font-size:12px;color:var(--pt-out-text);line-height:1.5;}
+
+/* ── Customize panel ────────────────────────── */
+.port-cust-btn{
+  position:fixed;bottom:28px;right:28px;z-index:3010;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--pt-grad);border:none;cursor:pointer;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .2s,box-shadow .2s;
+}
+.port-cust-btn:hover{transform:scale(1.08);box-shadow:0 8px 28px rgba(0,0,0,0.4);}
+.port-cust-panel{
+  position:fixed;bottom:92px;right:28px;z-index:3010;
+  width:280px;background:var(--pt-cust-bg);
+  border:1px solid var(--pt-border);border-radius:20px;
+  padding:20px;box-shadow:0 16px 48px rgba(0,0,0,0.4);
+  transform:scale(0.9) translateY(12px);opacity:0;pointer-events:none;
+  transition:transform .25s ease,opacity .25s ease;transform-origin:bottom right;
+}
+.port-cust-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all;}
+.port-cust-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pt-muted);margin-bottom:14px;}
+.port-cust-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.port-cust-label{font-size:13px;font-weight:600;color:var(--pt-heading);}
+.port-mode-toggle{display:flex;gap:6px;}
+.port-mode-btn{padding:6px 14px;border-radius:20px;border:1px solid var(--pt-border);background:var(--pt-card);color:var(--pt-text);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all .2s;}
+.port-mode-btn.active{background:var(--pt-primary);border-color:var(--pt-primary);color:#fff;}
+.port-theme-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.port-theme-swatch{width:100%;aspect-ratio:1;border-radius:10px;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;position:relative;}
+.port-theme-swatch:hover{transform:scale(1.1);}
+.port-theme-swatch.active{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,0.25);}
+.port-theme-swatch .swatch-check{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;}
+.port-theme-swatch.active .swatch-check{opacity:1;}
+.port-theme-label{font-size:9px;font-weight:600;letter-spacing:0.5px;text-align:center;color:var(--pt-muted);margin-top:4px;text-transform:uppercase;}
+
+/* ── Main site dark/light mode ──────────────── */
+body.site-light{
+  --dark:#F8F4F1;
+  background:#fff;
+}
+body.site-light .nav{background:rgba(248,244,241,0.92) !important;border-bottom-color:rgba(28,17,11,0.1);}
+body.site-light .nav.scrolled{background:rgba(248,244,241,0.99) !important;box-shadow:0 4px 24px rgba(0,0,0,0.08);}
+body.site-light .nav__logo-text,body.site-light .nav__link{color:rgba(28,17,11,0.65);}
+body.site-light .nav__link:hover{color:#1C110B;}
+body.site-light .btn--outline{color:var(--dbg);border-color:rgba(28,17,11,0.3);}
+body.site-light .btn--outline:hover{background:rgba(28,17,11,0.06);}
+body.site-light .hero{background:var(--lbg);}
+body.site-light .hero__headline{color:var(--dbg);}
+body.site-light .hero__headline em{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+body.site-light .hero__sub{color:rgba(28,17,11,0.6);}
+body.site-light .hero__stat-num{color:var(--dbg);}
+body.site-light .hero__stat-label{color:rgba(28,17,11,0.45);}
+body.site-light .hero__eyebrow .tag--muted{color:rgba(28,17,11,0.5);}
+body.site-light .trusted{background:var(--lbg);}
+body.site-light .trusted__logo{filter:none;opacity:0.35;}
+body.site-light .trusted__logo-name{color:var(--dbg);}
+body.site-light .structure{background:var(--lbg);}
+body.site-light .structure .section-title{color:var(--dbg);}
+body.site-light .structure .section-sub{color:rgba(28,17,11,0.55);}
+body.site-light .team-ceo__quote{background:rgba(28,17,11,0.04);border-color:rgba(28,17,11,0.1);}
+body.site-light .team-ceo__quote-text{color:var(--dbg);}
+body.site-light .team-ceo__quote-attr{color:rgba(28,17,11,0.4);}
+body.site-light .team-card{background:rgba(28,17,11,0.03);border-color:rgba(28,17,11,0.1);}
+body.site-light .team-card:hover{background:rgba(28,17,11,0.06);border-color:rgba(241,90,36,0.4);}
+body.site-light .team-card__name{color:var(--dbg);}
+body.site-light .team-card__title{color:rgba(28,17,11,0.5);}
+body.site-light .team-card__bio{color:rgba(28,17,11,0.65);border-top-color:rgba(28,17,11,0.08);}
+body.site-light .team-social-btn{background:rgba(28,17,11,0.08);border-color:rgba(28,17,11,0.15);}
+body.site-light .team-social-btn svg path,body.site-light .team-social-btn svg circle{stroke:rgba(28,17,11,0.5);}
+body.site-light .get-page{background:var(--lbg);}
+body.site-light .get-page__visual{background:rgba(255,255,255,0.7);border-color:rgba(28,17,11,0.1);}
+body.site-light .get-page__feat-list li{color:rgba(28,17,11,0.7);border-bottom-color:rgba(28,17,11,0.08);}
+body.site-light .footer{background:#1C110B;}
+body.site-light .mobile-menu{background:rgba(248,244,241,0.99);}
+body.site-light .mobile-menu .nav__link{color:rgba(28,17,11,0.75);}
+
+/* ── Site theme toggle button ───────────────── */
+.site-theme-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);
+  cursor:pointer;transition:all .2s;flex-shrink:0;
+}
+body.site-light .site-theme-btn{background:rgba(28,17,11,0.08);border-color:rgba(28,17,11,0.18);}
+.site-theme-btn:hover{background:rgba(241,90,36,0.2);border-color:rgba(241,90,36,0.4);}
+
+/* ─── GET YOUR PAGE ───────────────────────────── */
+.get-page{background:var(--dark);padding:96px 0;}
+.get-page__inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;
+}
+.get-page__visual{
+  background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.08);
+  border-radius:24px;padding:32px;
+}
+.get-page__mockup-bar{
+  display:flex;align-items:center;gap:6px;margin-bottom:20px;
+}
+.get-page__dot{width:10px;height:10px;border-radius:50%;}
+.get-page__mockup-line{height:9px;border-radius:5px;background:rgba(255,255,255,0.07);margin-bottom:8px;}
+.get-page__price-wrap{margin:20px 0 24px;}
+.get-page__price-main{
+  font-size:52px;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.get-page__price-label{font-size:14px;color:rgba(255,255,255,0.45);margin-top:4px;}
+.get-page__feat-list{list-style:none;margin-bottom:0;}
+.get-page__feat-list li{
+  font-size:14px;color:rgba(255,255,255,0.7);
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;gap:12px;
+}
+.get-page__check{
+  width:20px;height:20px;border-radius:50%;
+  background:rgba(241,90,36,0.15);border:1px solid rgba(241,90,36,0.3);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.get-page .section-title{color:#fff;}
+.get-page .section-sub{color:rgba(255,255,255,0.5);max-width:460px;margin:0 0 36px;}
+
+/* Clickable team/VA cards */
+.team-card.clickable{cursor:pointer;}
+.team-ceo__card.clickable{cursor:pointer;}
+.va-card.clickable{cursor:pointer;}
+
+@media(max-width:900px){
+  .port-hero__grid{grid-template-columns:1fr;gap:32px;}
+  .port-about-grid{grid-template-columns:1fr;}
+  .port-skills-grid{grid-template-columns:repeat(2,1fr);}
+  .port-pricing-grid{grid-template-columns:1fr;}
+  .port-contact-grid{grid-template-columns:1fr;}
+  .get-page__inner{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  .port-skills-grid{grid-template-columns:repeat(2,1fr);}
+  .port-hero__avatar{width:100px;height:100px;font-size:36px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <div class="nav__logo" onclick="navTo('#hero')">
+        <div class="nav__logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="3" width="18" height="14" rx="3" fill="white" opacity="0.95"/>
+            <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#F15A24" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav__logo-text">adsidi<span>.co</span></span>
+      </div>
+
+      <div class="nav__links">
+        <span class="nav__link" onclick="navTo('#about')">About</span>
+        <span class="nav__link" onclick="navTo('#services')">Hire a VA</span>
+        <span class="nav__link" onclick="navTo('#structure')">Our Team</span>
+        <span class="nav__link" onclick="navTo('#elite')">Elite VAs</span>
+        <span class="nav__link" onclick="navTo('#apply')">Join Us</span>
+        <span class="nav__link" onclick="navTo('#get-your-page')" style="color:var(--bl);">Get Your Page</span>
+      </div>
+
+      <div class="nav__cta">
+        <button class="site-theme-btn" id="siteThemeBtn" onclick="toggleSiteTheme()" title="Toggle dark/light mode">
+          <svg id="siteThemeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="5" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+            <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="btn btn--outline" style="padding:10px 20px;font-size:13px;"
+                onclick="openCalendly()">Schedule a Call</button>
+        <button class="btn btn--primary" style="padding:10px 20px;font-size:13px;"
+                onclick="openHireModal('elite')">Hire Now</button>
+      </div>
+
+      <div class="nav__burger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <span class="nav__link" onclick="navTo('#about');toggleMobileMenu()">About</span>
+  <span class="nav__link" onclick="navTo('#services');toggleMobileMenu()">Hire a VA</span>
+  <span class="nav__link" onclick="navTo('#structure');toggleMobileMenu()">Our Team</span>
+  <span class="nav__link" onclick="navTo('#elite');toggleMobileMenu()">Elite VAs</span>
+  <span class="nav__link" onclick="navTo('#apply');toggleMobileMenu()">Join Us</span>
+  <span class="nav__link" style="color:var(--bl);" onclick="navTo('#get-your-page');toggleMobileMenu()">Get Your Page</span>
+  <button class="btn btn--primary" onclick="openCalendly();toggleMobileMenu()">Schedule a Strategy Call</button>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero__bg-glow hero__bg-glow--1"></div>
+  <div class="hero__bg-glow hero__bg-glow--2"></div>
+  <div class="hero__grid-bg"></div>
+
+  <div class="container">
+    <div class="hero__content reveal">
+      <div class="hero__eyebrow">
+        <div class="hero__eyebrow-dot"></div>
+        <span class="tag tag--muted">Premier Virtual Assistant Agency</span>
+      </div>
+
+      <h1 class="hero__headline">
+        Your Business,<br><em>Elevated.</em>
+      </h1>
+
+      <p class="hero__sub">
+        We train, credential, and connect elite remote talent with businesses that need reliable, high-level support. Stop hiring — start growing.
+      </p>
+
+      <div class="hero__actions">
+        <button class="btn btn--primary" onclick="openHireModal('elite')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Hire an Elite VA
+        </button>
+        <button class="btn btn--outline" onclick="openHireModal('team')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Hire a VA Team
+        </button>
+        <button class="btn btn--ghost" style="color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.06);" onclick="openCalendly()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="4" width="18" height="18" rx="2" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+            <path d="M16 2v4M8 2v4M3 10h18" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Schedule a Strategy Call
+        </button>
+      </div>
+
+      <div class="hero__stats">
+        <div>
+          <div class="hero__stat-num"><span>100+</span></div>
+          <div class="hero__stat-label">Trained VAs</div>
+        </div>
+        <div>
+          <div class="hero__stat-num"><span>50+</span></div>
+          <div class="hero__stat-label">Businesses Served</div>
+        </div>
+        <div>
+          <div class="hero__stat-num"><span>95%</span></div>
+          <div class="hero__stat-label">Client Retention</div>
+        </div>
+        <div>
+          <div class="hero__stat-num"><span>3+</span></div>
+          <div class="hero__stat-label">Years of Excellence</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TRUSTED BY
+═══════════════════════════════════════ -->
+<div class="trusted" id="trusted">
+  <div class="container">
+    <p class="trusted__label">Trusted by growing businesses worldwide</p>
+    <div class="trusted__logos">
+
+      <!-- Logo 1 -->
+      <div class="trusted__logo">
+        <svg class="trusted__logo-icon" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="white"/>
+          <path d="M6 14h16M14 6l8 8-8 8" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="trusted__logo-name">LaunchFlow</span>
+      </div>
+
+      <!-- Logo 2 -->
+      <div class="trusted__logo">
+        <svg class="trusted__logo-icon" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="white"/>
+          <circle cx="14" cy="14" r="8" stroke="#333" stroke-width="2.5"/>
+          <path d="M14 10v4l3 3" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="trusted__logo-name">Chrono Digital</span>
+      </div>
+
+      <!-- Logo 3 -->
+      <div class="trusted__logo">
+        <svg class="trusted__logo-icon" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="white"/>
+          <path d="M7 21L14 7l7 14H7z" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="trusted__logo-name">Apex Studios</span>
+      </div>
+
+      <!-- Logo 4 -->
+      <div class="trusted__logo">
+        <svg class="trusted__logo-icon" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="white"/>
+          <rect x="7" y="7" width="14" height="14" rx="3" stroke="#333" stroke-width="2.5"/>
+          <path d="M11 14h6M14 11v6" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="trusted__logo-name">PlusBase</span>
+      </div>
+
+      <!-- Logo 5 -->
+      <div class="trusted__logo">
+        <svg class="trusted__logo-icon" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="6" fill="white"/>
+          <path d="M8 20V12l6-5 6 5v8M12 20v-5h4v5" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="trusted__logo-name">HomeBase Co.</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HOW IT WORKS
+═══════════════════════════════════════ -->
+<section class="hiw" id="how">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag tag--orange">HOW IT WORKS</span>
+      <h2 class="section-title">From strategy call<br>to fully staffed</h2>
+      <p class="section-sub">Three steps to building your remote dream team — without the guesswork.</p>
+    </div>
+
+    <div class="hiw__steps reveal">
+      <div class="hiw__step">
+        <span class="hiw__step-num">STEP 01</span>
+        <div class="hiw__step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="4" width="18" height="18" rx="2" stroke="#F15A24" stroke-width="2"/>
+            <path d="M16 2v4M8 2v4M3 10h18" stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="hiw__step-title">Schedule a Strategy Call</h3>
+        <p class="hiw__step-text">Book a free 30-minute call with our team. We map out exactly what your business needs and build a blueprint together.</p>
+        <div class="hiw__connector"></div>
+      </div>
+
+      <div class="hiw__step">
+        <span class="hiw__step-num">STEP 02</span>
+        <div class="hiw__step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z"
+                  stroke="#F15A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                  stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="hiw__step-title">Get Matched to Elite VAs</h3>
+        <p class="hiw__step-text">We handpick credentialed VAs from our talent pool that perfectly match your requirements, budget, and culture.</p>
+        <div class="hiw__connector"></div>
+      </div>
+
+      <div class="hiw__step">
+        <span class="hiw__step-num">STEP 03</span>
+        <div class="hiw__step-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                  stroke="#F15A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="hiw__step-title">Scale with Confidence</h3>
+        <p class="hiw__step-text">Your VA hits the ground running. We stay involved to ensure quality, performance, and long-term growth for your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag tag--orange">HIRE A VA</span>
+      <h2 class="section-title">Choose how you<br>want to scale</h2>
+      <p class="section-sub">Whether you need one powerhouse or a full team, we have the right solution for your business.</p>
+    </div>
+
+    <div class="services__grid reveal">
+      <!-- Card 1 -->
+      <div class="svc-card svc-card--dark" onclick="openHireModal('elite')">
+        <div class="svc-card__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="svc-card__label">Most Popular</span>
+        <h3 class="svc-card__title">Hire an Elite VA</h3>
+        <p class="svc-card__text">One dedicated, credentialed Virtual Assistant hand-matched to your exact needs. Trained, tested, and ready to deliver results from day one.</p>
+        <div class="svc-card__tags">
+          <span class="svc-tag">Admin Support</span>
+          <span class="svc-tag">Social Media</span>
+          <span class="svc-tag">Customer Service</span>
+          <span class="svc-tag">Executive VA</span>
+        </div>
+        <div class="svc-card__arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="svc-card svc-card--gradient" onclick="openHireModal('team')">
+        <div class="svc-card__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                  stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="svc-card__label">Full Scale</span>
+        <h3 class="svc-card__title">Hire a VA Team</h3>
+        <p class="svc-card__text">Build a complete remote team from our talent pool. Multiple specialized VAs working in sync to multiply your business operations at scale.</p>
+        <div class="svc-card__tags">
+          <span class="svc-tag">Full Operations</span>
+          <span class="svc-tag">Multi-Channel</span>
+          <span class="svc-tag">Managed Team</span>
+          <span class="svc-tag">24/7 Coverage</span>
+        </div>
+        <div class="svc-card__arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strategy Call strip -->
+    <div class="services__cta-row reveal">
+      <div>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="4" width="18" height="18" rx="2" stroke="#F15A24" stroke-width="2"/>
+          <path d="M16 2v4M8 2v4M3 10h18" stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="services__cta-text">Not sure where to start?</div>
+        <div class="services__cta-sub">Book a free strategy call — we'll build your blueprint together.</div>
+      </div>
+      <button class="btn btn--primary" onclick="openCalendly()">Schedule a Strategy Call</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about__grid">
+      <!-- Visual -->
+      <div class="about__visual reveal">
+        <div class="about__img-wrap">
+          <!-- Abstract brand visual -->
+          <svg width="320" height="320" viewBox="0 0 320 320" fill="none">
+            <circle cx="160" cy="160" r="160" fill="#1C110B"/>
+            <circle cx="160" cy="160" r="100" fill="rgba(241,90,36,0.08)" stroke="rgba(241,90,36,0.15)" stroke-width="1"/>
+            <circle cx="160" cy="160" r="60" fill="rgba(241,90,36,0.12)" stroke="rgba(241,90,36,0.2)" stroke-width="1"/>
+            <!-- Center logo -->
+            <rect x="126" y="134" width="68" height="52" rx="10" fill="url(#grad1)"/>
+            <path d="M144 172L160 156M160 156H150M160 156V166" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Orbiting dots -->
+            <circle cx="160" cy="60" r="6" fill="#F15A24" opacity="0.8"/>
+            <circle cx="260" cy="160" r="5" fill="#F5895A" opacity="0.6"/>
+            <circle cx="160" cy="260" r="6" fill="#F15A24" opacity="0.4"/>
+            <circle cx="60" cy="160" r="5" fill="#F5895A" opacity="0.6"/>
+            <circle cx="232" cy="88" r="4" fill="#F15A24" opacity="0.5"/>
+            <circle cx="232" cy="232" r="4" fill="#F5895A" opacity="0.5"/>
+            <circle cx="88" cy="88" r="4" fill="#F15A24" opacity="0.5"/>
+            <circle cx="88" cy="232" r="4" fill="#F5895A" opacity="0.5"/>
+            <defs>
+              <linearGradient id="grad1" x1="126" y1="134" x2="194" y2="186" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#C43E10"/>
+                <stop offset="1" stop-color="#F5895A"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="about__badge">
+          <div class="about__badge-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                    stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="about__badge-num">Elite</div>
+            <div class="about__badge-label">Certified VAs Only</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="about__text reveal">
+        <span class="tag tag--orange">ABOUT ADSIDI.CO</span>
+        <h2 class="about__title">We bridge the gap.<br>We build careers.</h2>
+        <p class="about__body">
+          Adsidi.co was born from a simple observation: there are two types of talented individuals out there. Those with incredible practical skills who struggle to communicate their value — and those with strong communication who lack the skills clients need.<br><br>
+          We decided to fix both. We train, credential, and combine these strengths to create fully rounded, elite Virtual Assistants who are ready to multiply your business from day one.
+        </p>
+
+        <div class="about__pillars">
+          <div class="pillar">
+            <div class="pillar__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="pillar__title">Our Mission</div>
+              <div class="pillar__text">Train, credential, and connect elite remote talent with businesses that need reliable, high-level support.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="white" stroke-width="2"/>
+                <circle cx="12" cy="12" r="3" stroke="white" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="pillar__title">Our Vision</div>
+              <div class="pillar__text">A world where every skilled individual has the tools, confidence, and credentials to reach their full potential.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar__icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                      stroke="white" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="pillar__title">Our Values</div>
+              <div class="pillar__text">Excellence, integrity, and empowerment — for every VA we train and every business we serve.</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn--primary" onclick="openCalendly()">Book a Strategy Call</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MEET THE TEAM
+═══════════════════════════════════════ -->
+<section class="structure" id="structure">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag" style="color:var(--bl);">MEET THE TEAM</span>
+      <h2 class="section-title" style="color:#fff;">The people behind<br>Adsidi.co</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.5);">We&rsquo;re a passionate team of trainers, operators, and partners united by one mission &mdash; building careers and elevating businesses.</p>
+    </div>
+
+    <!-- ── CEO Featured Card ── -->
+    <div class="team-ceo reveal">
+      <div class="team-ceo__card clickable" onclick="openPortfolio('ceo')" title="View Absidi's Portfolio">
+        <!-- Watermark -->
+        <div class="team-ceo__watermark">
+          <svg width="140" height="140" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="3" width="18" height="14" rx="3" fill="white"/>
+          </svg>
+        </div>
+        <div class="team-ceo__avatar">A</div>
+        <span class="team-ceo__badge">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          Founder &amp; CEO
+        </span>
+        <div class="team-ceo__name">Absidi</div>
+        <div class="team-ceo__title">Chief Executive Officer &bull; Adsidi.co</div>
+        <p class="team-ceo__bio">
+          Visionary behind Adsidi.co, built from a simple but powerful insight &mdash; that skilled people deserve the right platform to shine, and businesses deserve talent that truly delivers. Absidi leads the agency&rsquo;s mission, strategy, and growth.
+        </p>
+        <div class="team-ceo__social">
+          <div class="team-social-btn" title="Facebook">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                    stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="team-social-btn" title="LinkedIn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="4" cy="4" r="2" stroke="white" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="team-social-btn" title="Instagram">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="white"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- CEO Quote -->
+      <div class="team-ceo__quote">
+        <span class="team-ceo__quote-mark">&ldquo;</span>
+        <p class="team-ceo__quote-text">
+          We don&rsquo;t just place Virtual Assistants &mdash; we build complete professionals. Every person who goes through Adsidi comes out the other side with both the skills and the voice to use them.
+        </p>
+        <div class="team-ceo__quote-attr">
+          &mdash; Absidi, Founder &amp; CEO of Adsidi.co
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Team Grid ── -->
+    <div class="team-grid reveal">
+
+      <!-- HR Manager -->
+      <div class="team-card clickable" onclick="openPortfolio('hr')" title="View HR Manager's Portfolio">
+        <div class="team-card__top">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#1C110B,#3D2010);">H</div>
+          <div>
+            <div class="team-card__dept">Human Resources</div>
+            <div class="team-card__name">HR Manager</div>
+            <div class="team-card__title">People &amp; Talent Operations</div>
+          </div>
+        </div>
+        <p class="team-card__bio">
+          Oversees hiring, onboarding, and VA welfare. Ensures every team member feels supported and every client gets the right talent match from day one.
+        </p>
+        <div class="team-card__footer">
+          <div class="team-card__social">
+            <div class="team-social-btn" title="LinkedIn">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                      stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <span class="team-partner-tag">Core Team</span>
+        </div>
+      </div>
+
+      <!-- Lead Trainer -->
+      <div class="team-card clickable" onclick="openPortfolio('lead-trainer')" title="View Lead Trainer's Portfolio">
+        <div class="team-card__top">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#C43E10,#F15A24);">T</div>
+          <div>
+            <div class="team-card__dept">Training Division</div>
+            <div class="team-card__name">Lead Trainer</div>
+            <div class="team-card__title">Skills &amp; Curriculum Development</div>
+          </div>
+        </div>
+        <p class="team-card__bio">
+          Designs and delivers our signature VA training program. Combines practical tools with communication coaching so every graduate is client-ready and confident.
+        </p>
+        <div class="team-card__footer">
+          <div class="team-card__social">
+            <div class="team-social-btn" title="LinkedIn">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                      stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <span class="team-partner-tag">Core Team</span>
+        </div>
+      </div>
+
+      <!-- Communications Trainer -->
+      <div class="team-card clickable" onclick="openPortfolio('comms-trainer')" title="View Communications Trainer's Portfolio">
+        <div class="team-card__top">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#2D3A4A,#1C110B);">C</div>
+          <div>
+            <div class="team-card__dept">Training Division</div>
+            <div class="team-card__name">Communications Trainer</div>
+            <div class="team-card__title">Soft Skills &amp; Client Communication</div>
+          </div>
+        </div>
+        <p class="team-card__bio">
+          Specializes in transforming skilled-but-quiet individuals into articulate, professional communicators &mdash; the other half of the Adsidi formula.
+        </p>
+        <div class="team-card__footer">
+          <div class="team-card__social">
+            <div class="team-social-btn" title="LinkedIn">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                      stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <span class="team-partner-tag">Core Team</span>
+        </div>
+      </div>
+
+      <!-- Client Success Manager -->
+      <div class="team-card clickable" onclick="openPortfolio('client-success')" title="View Client Success Manager's Portfolio">
+        <div class="team-card__top">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#F5895A,#C43E10);">S</div>
+          <div>
+            <div class="team-card__dept">Client Success</div>
+            <div class="team-card__name">Client Success Manager</div>
+            <div class="team-card__title">Accounts &amp; Relationship Growth</div>
+          </div>
+        </div>
+        <p class="team-card__bio">
+          The bridge between our clients and their VAs. Ensures every placement runs smoothly, performance stays high, and businesses keep scaling.
+        </p>
+        <div class="team-card__footer">
+          <div class="team-card__social">
+            <div class="team-social-btn" title="LinkedIn">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                      stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <span class="team-partner-tag">Core Team</span>
+        </div>
+      </div>
+
+      <!-- Strategic Partner -->
+      <div class="team-card clickable" onclick="openPortfolio('partner')" title="View Strategic Partner's Portfolio">
+        <div class="team-card__top">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#0F4C81,#1A6BAF);">P</div>
+          <div>
+            <div class="team-card__dept">Partnership</div>
+            <div class="team-card__name">Strategic Partner</div>
+            <div class="team-card__title">Business Development &amp; Growth</div>
+          </div>
+        </div>
+        <p class="team-card__bio">
+          Drives Adsidi&rsquo;s partnerships with agencies, platforms, and business owners. Expands our network to create more opportunities for clients and VAs alike.
+        </p>
+        <div class="team-card__footer">
+          <div class="team-card__social">
+            <div class="team-social-btn" title="LinkedIn">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                      stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <span class="team-partner-tag">Partner</span>
+        </div>
+      </div>
+
+      <!-- Quality & Operations -->
+      <div class="team-card clickable" onclick="openPortfolio('qa')" title="View Q&amp;A Ops Lead's Portfolio">
+        <div class="team-card__top">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#1C110B,#F15A24);">Q</div>
+          <div>
+            <div class="team-card__dept">Quality Control</div>
+            <div class="team-card__name">Quality &amp; Ops Lead</div>
+            <div class="team-card__title">Standards, Review &amp; Compliance</div>
+          </div>
+        </div>
+        <p class="team-card__bio">
+          Maintains the Adsidi standard of excellence. Reviews VA output, credentials assessments, and makes sure every client experience exceeds expectations.
+        </p>
+        <div class="team-card__footer">
+          <div class="team-card__social">
+            <div class="team-social-btn" title="LinkedIn">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                      stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <span class="team-partner-tag">Core Team</span>
+        </div>
+      </div>
+
+    </div><!-- /team-grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     ELITE VAs
+═══════════════════════════════════════ -->
+<section class="eliteva" id="elite">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag tag--orange">ELITE VA ROSTER</span>
+      <h2 class="section-title">Meet our credentialed<br>Virtual Assistants</h2>
+      <p class="section-sub">Every VA in our roster is trained, tested, and certified by Adsidi.co. Browse profiles and find your perfect match.</p>
+    </div>
+
+    <div class="va-grid reveal">
+
+      <!-- VA 1 -->
+      <div class="va-card clickable" onclick="openPortfolio('andrea')">
+        <div class="va-card__header">
+          <div class="va-avatar" style="background:linear-gradient(135deg,#C43E10,#F15A24);">A</div>
+          <div>
+            <div class="va-card__name">Andrea M.</div>
+            <div class="va-card__role">Executive VA &bull; Social Media</div>
+            <div class="va-card__avail">
+              <div class="va-avail-dot"></div>Available Now
+            </div>
+          </div>
+        </div>
+        <div class="va-card__skills">
+          <span class="va-skill">GoHighLevel</span>
+          <span class="va-skill">Calendar Mgmt</span>
+          <span class="va-skill">Email Marketing</span>
+          <span class="va-skill">Canva</span>
+          <span class="va-skill">Notion</span>
+        </div>
+        <div class="va-card__footer">
+          <div class="va-card__rate">Starting at <strong>$8/hr</strong></div>
+          <button class="va-card__btn" onclick="event.stopPropagation();openPortfolio('andrea')">View &amp; Hire</button>
+        </div>
+      </div>
+
+      <!-- VA 2 -->
+      <div class="va-card clickable" onclick="openPortfolio('rico')">
+        <div class="va-card__header">
+          <div class="va-avatar" style="background:linear-gradient(135deg,#1C110B,#3D2010);">R</div>
+          <div>
+            <div class="va-card__name">Rico S.</div>
+            <div class="va-card__role">Tech VA &bull; Automation Specialist</div>
+            <div class="va-card__avail">
+              <div class="va-avail-dot"></div>Available Now
+            </div>
+          </div>
+        </div>
+        <div class="va-card__skills">
+          <span class="va-skill">GoHighLevel</span>
+          <span class="va-skill">Zapier</span>
+          <span class="va-skill">Make.com</span>
+          <span class="va-skill">Funnel Building</span>
+          <span class="va-skill">CRM Setup</span>
+        </div>
+        <div class="va-card__footer">
+          <div class="va-card__rate">Starting at <strong>$10/hr</strong></div>
+          <button class="va-card__btn" onclick="event.stopPropagation();openPortfolio('rico')">View &amp; Hire</button>
+        </div>
+      </div>
+
+      <!-- VA 3 -->
+      <div class="va-card clickable" onclick="openPortfolio('maria')">
+        <div class="va-card__header">
+          <div class="va-avatar" style="background:linear-gradient(135deg,#F5895A,#F15A24);">M</div>
+          <div>
+            <div class="va-card__name">Maria C.</div>
+            <div class="va-card__role">Social Media VA &bull; Content Creator</div>
+            <div class="va-card__avail">
+              <div class="va-avail-dot"></div>Available Now
+            </div>
+          </div>
+        </div>
+        <div class="va-card__skills">
+          <span class="va-skill">Instagram</span>
+          <span class="va-skill">Facebook Ads</span>
+          <span class="va-skill">Copywriting</span>
+          <span class="va-skill">CapCut</span>
+          <span class="va-skill">Scheduling</span>
+        </div>
+        <div class="va-card__footer">
+          <div class="va-card__rate">Starting at <strong>$7/hr</strong></div>
+          <button class="va-card__btn" onclick="event.stopPropagation();openPortfolio('maria')">View &amp; Hire</button>
+        </div>
+      </div>
+
+      <!-- VA 4 -->
+      <div class="va-card clickable" onclick="openPortfolio('james')">
+        <div class="va-card__header">
+          <div class="va-avatar" style="background:linear-gradient(135deg,#2D3A4A,#1C110B);">J</div>
+          <div>
+            <div class="va-card__name">James P.</div>
+            <div class="va-card__role">Customer Support VA</div>
+            <div class="va-card__avail">
+              <div class="va-avail-dot"></div>Available Now
+            </div>
+          </div>
+        </div>
+        <div class="va-card__skills">
+          <span class="va-skill">Zendesk</span>
+          <span class="va-skill">Live Chat</span>
+          <span class="va-skill">Email Support</span>
+          <span class="va-skill">Freshdesk</span>
+          <span class="va-skill">CRM</span>
+        </div>
+        <div class="va-card__footer">
+          <div class="va-card__rate">Starting at <strong>$7/hr</strong></div>
+          <button class="va-card__btn" onclick="event.stopPropagation();openPortfolio('james')">View &amp; Hire</button>
+        </div>
+      </div>
+
+      <!-- VA 5 -->
+      <div class="va-card clickable" onclick="openPortfolio('sofia')">
+        <div class="va-card__header">
+          <div class="va-avatar" style="background:linear-gradient(135deg,#C43E10,#1C110B);">S</div>
+          <div>
+            <div class="va-card__name">Sofia L.</div>
+            <div class="va-card__role">Admin VA &bull; Operations</div>
+            <div class="va-card__avail">
+              <div class="va-avail-dot"></div>Available Now
+            </div>
+          </div>
+        </div>
+        <div class="va-card__skills">
+          <span class="va-skill">Google Workspace</span>
+          <span class="va-skill">Data Entry</span>
+          <span class="va-skill">Trello</span>
+          <span class="va-skill">Asana</span>
+          <span class="va-skill">Reporting</span>
+        </div>
+        <div class="va-card__footer">
+          <div class="va-card__rate">Starting at <strong>$6/hr</strong></div>
+          <button class="va-card__btn" onclick="event.stopPropagation();openPortfolio('sofia')">View &amp; Hire</button>
+        </div>
+      </div>
+
+      <!-- VA 6 - CTA card -->
+      <div class="va-card" style="background:var(--dbg);display:flex;flex-direction:column;
+           align-items:center;justify-content:center;text-align:center;padding:40px 32px;
+           cursor:pointer;" onclick="openCalendly()">
+        <div style="width:56px;height:56px;border-radius:50%;border:2px dashed rgba(241,90,36,0.4);
+             display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 5v14M5 12h14" stroke="#F15A24" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;">See All Elite VAs</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:20px;">
+          Browse our full roster and find the perfect match for your business
+        </div>
+        <button class="btn btn--primary" style="font-size:13px;padding:10px 20px;">
+          Book a Matching Call
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     GET YOUR PAGE
+═══════════════════════════════════════ -->
+<section class="get-page" id="get-your-page">
+  <div class="container">
+    <div class="get-page__inner">
+
+      <!-- Text side -->
+      <div class="reveal">
+        <span class="tag" style="color:var(--bl);margin-bottom:14px;display:block;">FOR CREDENTIALED VAs</span>
+        <h2 class="section-title" style="color:#fff;">Own your space<br>on <em style="font-style:normal;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Adsidi.co</em></h2>
+        <p class="section-sub">Credentialed Adsidi VAs can claim their own fully branded portfolio page on our domain &mdash; showcasing their skills, experience, and packages to potential clients, all in one place.</p>
+
+        <ul class="get-page__feat-list">
+          <li>
+            <div class="get-page__check">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Your own page at <strong style="color:#fff;">adsidi.co/[yourname]</strong>
+          </li>
+          <li>
+            <div class="get-page__check">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Showcase your portfolio, experience &amp; pricing packages
+          </li>
+          <li>
+            <div class="get-page__check">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Clients can contact you directly through adsidi.co
+          </li>
+          <li>
+            <div class="get-page__check">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            Adsidi.co branding gives you instant credibility &amp; trust
+          </li>
+          <li>
+            <div class="get-page__check">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            One-time payment &mdash; yours to keep, fully customizable
+          </li>
+        </ul>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+          <button class="btn btn--primary" onclick="openCalendly()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Claim My Page &mdash; ₱4,999
+          </button>
+          <button class="btn btn--outline" onclick="openCalendly()">Learn More</button>
+        </div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:12px;">Available to Adsidi.co credentialed VAs only. Includes setup &amp; lifetime hosting.</p>
+      </div>
+
+      <!-- Visual mockup side -->
+      <div class="get-page__visual reveal">
+        <!-- Browser bar -->
+        <div class="get-page__mockup-bar">
+          <div class="get-page__dot" style="background:#FF5F57;"></div>
+          <div class="get-page__dot" style="background:#FFBD2E;"></div>
+          <div class="get-page__dot" style="background:#28CA41;"></div>
+          <div style="flex:1;height:22px;background:rgba(255,255,255,0.05);border-radius:6px;margin-left:10px;display:flex;align-items:center;padding:0 10px;">
+            <span style="font-size:10px;color:rgba(255,255,255,0.3);">adsidi.co/yourname</span>
+          </div>
+        </div>
+        <!-- Mockup hero -->
+        <div style="background:linear-gradient(135deg,rgba(241,90,36,0.12),rgba(196,62,16,0.08));border-radius:12px;padding:24px;margin-bottom:12px;border:1px solid rgba(241,90,36,0.15);">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+            <div style="width:52px;height:52px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;border:2px solid rgba(241,90,36,0.4);">Y</div>
+            <div>
+              <div style="width:80px;height:10px;background:rgba(255,255,255,0.15);border-radius:5px;margin-bottom:6px;"></div>
+              <div style="width:110px;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;"></div>
+            </div>
+            <div style="margin-left:auto;padding:5px 12px;background:var(--grad);border-radius:20px;font-size:9px;font-weight:700;color:#fff;">Available</div>
+          </div>
+          <div style="width:90%;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;margin-bottom:5px;"></div>
+          <div style="width:70%;height:8px;background:rgba(255,255,255,0.05);border-radius:4px;"></div>
+        </div>
+        <!-- Skills row -->
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
+          <span style="padding:5px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:9px;color:rgba(255,255,255,0.5);">GoHighLevel</span>
+          <span style="padding:5px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:9px;color:rgba(255,255,255,0.5);">Canva</span>
+          <span style="padding:5px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:9px;color:rgba(255,255,255,0.5);">Zapier</span>
+          <span style="padding:5px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:9px;color:rgba(255,255,255,0.5);">Social Media</span>
+        </div>
+        <!-- Pricing cards -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div style="padding:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;text-align:center;">
+            <div style="font-size:8px;font-weight:700;color:var(--bp);letter-spacing:1px;margin-bottom:6px;">STARTER</div>
+            <div style="font-size:14px;font-weight:800;color:#fff;">$6/hr</div>
+          </div>
+          <div style="padding:14px;background:rgba(241,90,36,0.1);border:1.5px solid rgba(241,90,36,0.35);border-radius:10px;text-align:center;">
+            <div style="font-size:8px;font-weight:700;color:var(--bp);letter-spacing:1px;margin-bottom:6px;">GROWTH</div>
+            <div style="font-size:14px;font-weight:800;color:#fff;">$240/mo</div>
+          </div>
+          <div style="padding:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;text-align:center;">
+            <div style="font-size:8px;font-weight:700;color:var(--bp);letter-spacing:1px;margin-bottom:6px;">PARTNER</div>
+            <div style="font-size:14px;font-weight:800;color:#fff;">Custom</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:16px;">
+          <div class="get-page__price-wrap">
+            <div class="get-page__price-main">₱4,999</div>
+            <div class="get-page__price-label">One-time setup &bull; Lifetime hosting on adsidi.co</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     APPLICANT CTA
+═══════════════════════════════════════ -->
+<section class="apply-cta" id="apply">
+  <div class="container">
+    <div class="apply-cta__inner reveal">
+      <span class="tag" style="color:rgba(255,255,255,0.65);margin-bottom:16px;display:block;">
+        FOR ASPIRING VAs
+      </span>
+      <h2 class="apply-cta__title">
+        Ready to become<br>the full package?
+      </h2>
+      <p class="apply-cta__sub">
+        We&rsquo;ll train your practical skills, sharpen your communication,<br>
+        and connect you with businesses that are looking for exactly what you bring.
+      </p>
+      <div class="apply-cta__actions">
+        <button class="btn" style="background:#fff;color:#C43E10;font-weight:700;" onclick="openCalendly()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="#C43E10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Apply Now
+        </button>
+        <button class="btn btn--outline" onclick="openCalendly()">Learn More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">
+          <div class="footer__brand-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="3" width="18" height="14" rx="3" fill="white" opacity="0.95"/>
+              <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#F15A24" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="footer__brand-name">adsidi<span>.co</span></span>
+        </div>
+        <p class="footer__desc">Premier Virtual Assistant Agency. We train, credential, and connect elite remote talent with businesses that need reliable, high-level support.</p>
+        <div class="footer__social">
+          <div class="footer__social-btn" title="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                    stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="footer__social-btn" title="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,0.6)"/>
+            </svg>
+          </div>
+          <div class="footer__social-btn" title="LinkedIn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer__col-title">Company</div>
+        <a class="footer__link" onclick="navTo('#about')">About Us</a>
+        <a class="footer__link" onclick="navTo('#structure')">Our Team</a>
+        <a class="footer__link" onclick="navTo('#elite')">Elite VAs</a>
+        <a class="footer__link" onclick="navTo('#apply')">Careers</a>
+      </div>
+
+      <div>
+        <div class="footer__col-title">Services</div>
+        <a class="footer__link" onclick="openHireModal('elite')">Hire an Elite VA</a>
+        <a class="footer__link" onclick="openHireModal('team')">Hire a VA Team</a>
+        <a class="footer__link" onclick="openCalendly()">Strategy Call</a>
+        <a class="footer__link">VA Training</a>
+        <a class="footer__link" onclick="navTo('#get-your-page')" style="color:var(--bl);">Get Your Page</a>
+      </div>
+
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <a class="footer__link">hello@adsidi.co</a>
+        <a class="footer__link" onclick="openCalendly()">Book a Call</a>
+        <a class="footer__link">Facebook Page</a>
+        <a class="footer__link">Instagram</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__copy">&copy; 2025 <span>Adsidi.co</span> &mdash; Your Business, Elevated.</div>
+      <div class="footer__copy">Privacy Policy &bull; Terms of Service</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     PORTFOLIO OVERLAY
+═══════════════════════════════════════ -->
+<div class="portfolio-overlay" id="portfolioOverlay">
+  <div class="port-topbar">
+    <button class="port-back" onclick="closePortfolio()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to Adsidi.co
+    </button>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="3" width="18" height="14" rx="3" fill="white" opacity="0.95"/>
+          <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#F15A24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span style="font-size:14px;font-weight:800;color:#fff;">adsidi<span style="color:var(--bl);">.co</span></span>
+    </div>
+  </div>
+  <div id="portfolioContent"></div>
+
+  <!-- Customize button (VA's own page controls) -->
+  <button class="port-cust-btn" id="portCustBtn" onclick="toggleCustPanel()" title="Customize my page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="3" stroke="white" stroke-width="2"/>
+      <path d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- Customize panel -->
+  <div class="port-cust-panel" id="portCustPanel">
+    <div class="port-cust-title">Customize My Page</div>
+
+    <!-- Mode toggle -->
+    <div class="port-cust-row">
+      <span class="port-cust-label">Mode</span>
+      <div class="port-mode-toggle">
+        <button class="port-mode-btn active" id="modeDark" onclick="setPortMode('dark')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="margin-right:4px;vertical-align:middle;">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>Dark
+        </button>
+        <button class="port-mode-btn" id="modeLight" onclick="setPortMode('light')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="margin-right:4px;vertical-align:middle;">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>Light
+        </button>
+      </div>
+    </div>
+
+    <!-- Color themes -->
+    <div class="port-cust-title" style="margin-top:4px;">Color Theme</div>
+    <div class="port-theme-grid">
+      <div>
+        <div class="port-theme-swatch active" id="sw-ember" style="background:linear-gradient(135deg,#C43E10,#F15A24,#F5895A);" onclick="setPortTheme('ember')" title="Ember">
+          <div class="swatch-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="port-theme-label">Ember</div>
+      </div>
+      <div>
+        <div class="port-theme-swatch" id="sw-ocean" style="background:linear-gradient(135deg,#0369A1,#0EA5E9,#38BDF8);" onclick="setPortTheme('ocean')" title="Ocean">
+          <div class="swatch-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="port-theme-label">Ocean</div>
+      </div>
+      <div>
+        <div class="port-theme-swatch" id="sw-violet" style="background:linear-gradient(135deg,#6D28D9,#8B5CF6,#A78BFA);" onclick="setPortTheme('violet')" title="Violet">
+          <div class="swatch-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="port-theme-label">Violet</div>
+      </div>
+      <div>
+        <div class="port-theme-swatch" id="sw-emerald" style="background:linear-gradient(135deg,#047857,#10B981,#34D399);" onclick="setPortTheme('emerald')" title="Emerald">
+          <div class="swatch-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="port-theme-label">Emerald</div>
+      </div>
+      <div>
+        <div class="port-theme-swatch" id="sw-rose" style="background:linear-gradient(135deg,#BE123C,#F43F5E,#FB7185);" onclick="setPortTheme('rose')" title="Rose">
+          <div class="swatch-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="port-theme-label">Rose</div>
+      </div>
+      <div>
+        <div class="port-theme-swatch" id="sw-amber" style="background:linear-gradient(135deg,#B45309,#F59E0B,#FCD34D);" onclick="setPortTheme('amber')" title="Amber">
+          <div class="swatch-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="port-theme-label">Amber</div>
+      </div>
+      <div>
+        <div class="port-theme-swatch" id="sw-indigo" style="background:linear-gradient(135deg,#4338CA,#6366F1,#818CF8);" onclick="setPortTheme('indigo')" title="Indigo">
+          <div class="swatch-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="port-theme-label">Indigo</div>
+      </div>
+      <div>
+        <div class="port-theme-swatch" id="sw-teal" style="background:linear-gradient(135deg,#0F766E,#14B8A6,#2DD4BF);" onclick="setPortTheme('teal')" title="Teal">
+          <div class="swatch-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+        <div class="port-theme-label">Teal</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HIRE MODAL
+═══════════════════════════════════════ -->
+<div class="modal-overlay" id="hireModal">
+  <div class="modal">
+    <div class="modal__header">
+      <button class="modal__close" onclick="closeModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6l12 12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <span class="modal__header-tag" id="modalTag">HIRE AN ELITE VA</span>
+      <div class="modal__header-title" id="modalTitle">How would you like to work together?</div>
+      <div class="modal__header-sub">Choose the engagement model that fits your business.</div>
+    </div>
+    <div class="modal__body">
+      <div class="modal__question">What type of role are you looking to fill?</div>
+      <div class="modal__options">
+
+        <div class="modal__option" onclick="selectOption(this,'project')">
+          <div class="modal__option-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
+                    stroke="#F15A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="modal__option-title">Project / Gig Based</div>
+            <div class="modal__option-text">Need help for a specific project, campaign, or deliverable. Flexible, short-term, and results-driven.</div>
+          </div>
+        </div>
+
+        <div class="modal__option" onclick="selectOption(this,'longterm')">
+          <div class="modal__option-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z"
+                    stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                    stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="modal__option-title">Long-Term Employment</div>
+            <div class="modal__option-text">Want a dedicated VA or team as an ongoing part of your business. Full-time or part-time, long-term commitment.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--primary" style="flex:1;" id="modalCTA"
+              onclick="proceedToCalendly()" disabled>
+        Book a Strategy Call
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="btn" style="background:var(--lbg);color:#7A6558;" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════ -->
+<script>
+/* ── Nav scroll effect ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* ── Smooth scroll ── */
+function navTo(id) {
+  const el = document.querySelector(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ── Mobile menu ── */
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+/* ── Scroll reveal ── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── Modal ── */
+let selectedOption = null;
+let hireType = 'elite';
+
+function openHireModal(type) {
+  hireType = type;
+  selectedOption = null;
+  document.getElementById('modalCTA').disabled = true;
+  document.querySelectorAll('.modal__option').forEach(o => o.classList.remove('selected'));
+  document.getElementById('modalTag').textContent =
+    type === 'team' ? 'HIRE A VA TEAM' : 'HIRE AN ELITE VA';
+  document.getElementById('modalTitle').textContent =
+    type === 'team'
+      ? 'How would you like your team to work?'
+      : 'How would you like to work together?';
+  document.getElementById('hireModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('hireModal').classList.remove('open');
+}
+
+function selectOption(el, type) {
+  selectedOption = type;
+  document.querySelectorAll('.modal__option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('modalCTA').disabled = false;
+}
+
+function proceedToCalendly() {
+  closeModal();
+  openCalendly();
+}
+
+/* ── Calendly ── */
+function openCalendly() {
+  window.open('https://calendly.com/adsidi/strategy-call', '_blank');
+}
+
+/* ── Close modal on backdrop ── */
+document.getElementById('hireModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+/* ══════════════════════════════════════════════════
+   PORTFOLIO SYSTEM
+══════════════════════════════════════════════════ */
+const portfolioData = {
+  ceo: {
+    initial:'A', name:'Absidi', title:'Founder & CEO', dept:'Leadership & Vision',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#C43E10,#F15A24)',
+    availText:'Agency CEO', availColor:'#F15A24',
+    tagline:"I built Adsidi.co because I believe every skilled person deserves a platform to shine — and every business deserves talent that truly delivers.",
+    aboutCards:[
+      {label:'Who I Am', text:'Entrepreneur, trainer, and the visionary behind Adsidi.co. Passionate about bridging the gap between raw talent and real opportunity in the remote work industry.'},
+      {label:'What I Do', text:'Lead agency strategy, oversee VA training programs, manage client partnerships, and build the systems that make Adsidi.co the premier VA agency it is today.'},
+      {label:'What I Love', text:"Empowering people to discover their full potential. Seeing a trained VA land their first client — that's the moment that drives everything we do."}
+    ],
+    experience:[
+      {year:'2022 – Present', role:'Founder & CEO', company:'Adsidi.co', desc:'Built Adsidi.co from the ground up — developing training programs, client acquisition systems, talent sourcing processes, and the unique formula that combines practical skills with communication excellence.'},
+      {year:'2020 – 2022', role:'Senior Business Development Manager', company:'Remote Operations Co.', desc:'Led business development and client strategy for a remote staffing firm, building partnerships with SMEs across the US and Australian markets.'},
+      {year:'2018 – 2020', role:'Virtual Assistant & Team Lead', company:'Freelance / Agency', desc:'Worked as an elite VA across multiple industries before transitioning to agency leadership. Specialized in executive support, social media, and CRM management.'}
+    ],
+    skills:['Business Strategy','Leadership','VA Training','Client Relations','Sales & BD','Team Building','GoHighLevel','Process Design','Content Strategy','Public Speaking','Recruitment','Operations'],
+    isTeamMember:true,
+    packages:[
+      {name:'Starter', price:'Free', desc:'Book a free 30-minute strategy call with Absidi.', features:['30-min discovery call','Business needs assessment','VA blueprint outline','No commitment required'], featured:false},
+      {name:'Blueprint', price:'₱4,999', desc:'Full business blueprint + matched VA placement.', features:['60-min deep-dive session','Custom VA role design','Hand-matched talent selection','Onboarding roadmap','1 month check-in call'], featured:true},
+      {name:'Partner', price:'Custom', desc:'Ongoing agency partnership for serious scale.', features:['Full VA team deployment','Dedicated account manager','Monthly strategy sessions','Performance reporting','Priority access & support'], featured:false}
+    ],
+    outputs:[
+      {type:'image', title:'Adsidi.co Brand Launch', caption:'Brand identity and digital presence rollout for the agency', color:'linear-gradient(135deg,#C43E10,#F15A24,#F5895A)'},
+      {type:'video', title:'Founder Story — Why I Built Adsidi.co', caption:'A short documentary on the mission behind the agency', color:'linear-gradient(135deg,#0F0905,#1C110B)'},
+      {type:'doc', title:'VA Training Framework', caption:'The curriculum that has trained 100+ credentialed VAs', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'image', title:'Agency Growth — 2023 to 2025', caption:'Key milestones, client growth, and VA placements', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'video', title:'Client Success Reel', caption:'Testimonials and results from Adsidi-placed VAs', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'doc', title:'The Adsidi Formula — Case Study', caption:'How we bridge skills + communication to create elite VAs', color:'linear-gradient(135deg,#B45309,#F59E0B)'}
+    ]
+  },
+  hr: {
+    initial:'H', name:'HR Manager', title:'People & Talent Operations', dept:'Human Resources',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#1C110B,#3D2010)',
+    availText:'Core Team', availColor:'#F5895A',
+    tagline:"Every great team starts with the right people. I make sure Adsidi.co only brings in talent that truly makes a difference.",
+    aboutCards:[
+      {label:'Who I Am', text:'HR professional with a passion for people operations, talent acquisition, and creating environments where VAs can thrive and grow.'},
+      {label:'What I Do', text:'Oversee hiring, onboarding, and VA welfare. Match the right talent to the right client — and keep the whole team supported and performing.'},
+      {label:'What I Love', text:"Watching a nervous applicant become a confident, client-ready VA. That transformation never gets old."}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'HR & Talent Manager', company:'Adsidi.co', desc:'Manages the full talent pipeline — from VA applicant screening to onboarding, welfare monitoring, and performance support across all active placements.'},
+      {year:'2021 – 2023', role:'Recruitment Specialist', company:'Remote Talent Hub', desc:'Specialized in remote talent acquisition for BPO and VA roles across Southeast Asian markets, managing sourcing, screening, and onboarding workflows.'}
+    ],
+    skills:['Talent Acquisition','Onboarding','HR Operations','Employee Wellness','Recruitment','Performance Review','People Management','Documentation','Interviewing','ATS Systems','Compliance','Team Support'],
+    isTeamMember:true,
+    packages:[
+      {name:'Starter', price:'Free', desc:'Initial VA talent consultation — no strings attached.', features:['30-min talent needs call','Role profile discussion','Candidate shortlist preview','No commitment required'], featured:false},
+      {name:'Placement', price:'₱2,999', desc:'Full-service VA recruitment & onboarding package.', features:['In-depth role scoping','Screened candidate shortlist','Interview coordination','Onboarding checklist','2-week post-placement support'], featured:true},
+      {name:'Team Build', price:'Custom', desc:'Multi-VA recruitment and team onboarding.', features:['Bulk talent sourcing','Team structure design','Full onboarding program','HR documentation setup','Ongoing welfare monitoring'], featured:false}
+    ],
+    outputs:[
+      {type:'doc', title:'VA Talent Acquisition Playbook', caption:'End-to-end hiring framework used across all Adsidi placements', color:'linear-gradient(135deg,#1C110B,#3D2010)'},
+      {type:'doc', title:'Onboarding Checklist Template', caption:'72-hour VA onboarding process — zero drop-off rate', color:'linear-gradient(135deg,#C43E10,#F15A24)'},
+      {type:'image', title:'Applicant Screening Dashboard', caption:'ATS workflow tracking 200+ monthly applicants per cycle', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'video', title:'VA Interview Best Practices', caption:'Training video for clients on how to evaluate candidates', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'doc', title:'HR Policy & Compliance Guide', caption:'Internal people ops documentation and welfare protocols', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'image', title:'Team Culture Snapshot', caption:'Monthly team health metrics and engagement overview', color:'linear-gradient(135deg,#B45309,#F59E0B)'}
+    ]
+  },
+  'lead-trainer': {
+    initial:'T', name:'Lead Trainer', title:'Skills & Curriculum Development', dept:'Training Division',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#C43E10,#F15A24)',
+    availText:'Core Team', availColor:'#F5895A',
+    tagline:"I design the programs that turn potential into performance. Every VA who graduates is client-ready, confident, and career-prepared.",
+    aboutCards:[
+      {label:'Who I Am', text:'Experienced VA trainer and curriculum designer. Combines years of frontline VA experience with a genuine passion for teaching and skill development.'},
+      {label:'What I Do', text:"Design and deliver Adsidi's signature VA training programs — covering tools, workflows, communication, and practical client scenarios from day one."},
+      {label:'What I Love', text:"The moment a student realizes they're capable of more than they thought. That click of confidence is why I train."}
+    ],
+    experience:[
+      {year:'2022 – Present', role:'Lead VA Trainer', company:'Adsidi.co', desc:'Develops and delivers the full Adsidi training curriculum — from GoHighLevel and CRM tools to client communication frameworks and professional portfolio building.'},
+      {year:'2019 – 2022', role:'Senior Virtual Assistant', company:'Multiple Agencies', desc:'Worked across admin, social media, and project management VA roles, building the practical expertise that now shapes the Adsidi curriculum.'}
+    ],
+    skills:['Curriculum Design','VA Training','GoHighLevel','CRM Systems','Social Media','Admin Operations','Email Marketing','Canva','Process Documentation','Mentoring','Notion','Zapier'],
+    isTeamMember:true,
+    packages:[
+      {name:'Starter', price:'Free', desc:'One free introductory training session for new applicants.', features:['1-hour orientation session','Tools overview','Q&A with the trainer','Program roadmap preview'], featured:false},
+      {name:'Foundation', price:'₱1,999', desc:'Core VA skills training — tools, workflows & best practices.', features:['4-week training program','GoHighLevel & CRM modules','Practical assignments','Trainer feedback sessions','Certificate of completion'], featured:true},
+      {name:'Mastery', price:'₱3,999', desc:'Advanced VA training with specialization track.', features:['8-week intensive program','Specialization elective','Portfolio development','Mock client scenarios','Adsidi credential badge'], featured:false}
+    ],
+    outputs:[
+      {type:'doc', title:'VA Curriculum Framework', caption:'Full 8-week training roadmap covering tools, workflows & client skills', color:'linear-gradient(135deg,#C43E10,#F15A24)'},
+      {type:'video', title:'GoHighLevel Mastery Module', caption:'Step-by-step CRM setup and pipeline training — watch clip', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'image', title:'Trainee Progress Tracker', caption:'Performance dashboard for 50+ active VA trainees', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'doc', title:'Canva & Content Workflow SOP', caption:'Standard operating procedure for social media VA deliverables', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'video', title:'Graduation Highlight Reel', caption:'Batch 3 VA graduation — from applicant to client-ready', color:'linear-gradient(135deg,#B45309,#F59E0B)'},
+      {type:'image', title:'Training Completion Rates', caption:'94% completion rate across 6 training cohorts — by the numbers', color:'linear-gradient(135deg,#BE123C,#F43F5E)'}
+    ]
+  },
+  'comms-trainer': {
+    initial:'C', name:'Communications Trainer', title:'Soft Skills & Client Communication', dept:'Training Division',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#2D3A4A,#1C110B)',
+    availText:'Core Team', availColor:'#F5895A',
+    tagline:"Skills without communication is potential without a voice. I give every VA that voice.",
+    aboutCards:[
+      {label:'Who I Am', text:'Communication specialist, coach, and the other half of the Adsidi formula. Dedicated to transforming skilled individuals into articulate, professional communicators.'},
+      {label:'What I Do', text:'Train VAs in professional English, client communication etiquette, email tone, video presence, and the art of building trust with clients remotely.'},
+      {label:'What I Love', text:"When a student who was afraid to speak up in a meeting becomes the one running it. Communication is learnable — and I prove it every day."}
+    ],
+    experience:[
+      {year:'2022 – Present', role:'Communications Trainer', company:'Adsidi.co', desc:"Delivers soft skills and communication training as a core component of the Adsidi VA program. Covers written, verbal, and video communication for remote work."},
+      {year:'2018 – 2022', role:'ESL & Business Communication Coach', company:'Online & Institutional', desc:'Coached professionals and students in business English, presentation skills, and professional etiquette for the global remote work market.'}
+    ],
+    skills:['Business Communication','ESL Coaching','Public Speaking','Email Writing','Client Etiquette','Video Presence','Presentation Skills','Active Listening','Conflict Resolution','Tone & Voice','Professional Writing','Confidence Building'],
+    isTeamMember:true,
+    packages:[
+      {name:'Starter', price:'Free', desc:'Free 30-min communication assessment session.', features:['Speaking & writing assessment','Personalized feedback','Improvement roadmap','No commitment required'], featured:false},
+      {name:'Core', price:'₱1,499', desc:'Professional communication crash course for VAs.', features:['3-week intensive coaching','Written & verbal modules','Email tone & structure','Video presence training','Practice scenarios'], featured:true},
+      {name:'Elite', price:'₱2,999', desc:'Full communication mastery with 1-on-1 coaching.', features:['6-week deep program','Weekly 1-on-1 sessions','Live role-play exercises','Client call preparation','Certification of completion'], featured:false}
+    ],
+    outputs:[
+      {type:'video', title:'Client Call Role-Play Demo', caption:'Live demonstration of professional remote client communication', color:'linear-gradient(135deg,#2D3A4A,#1C110B)'},
+      {type:'doc', title:'Email Tone & Etiquette Guide', caption:'Professional writing framework used by all Adsidi VAs', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'image', title:'Before & After — VA Confidence', caption:'Communication assessment results across 3 cohort batches', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'video', title:'Video Presence Masterclass', caption:'Training session on camera confidence and virtual meeting etiquette', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'doc', title:'Conflict Resolution Playbook', caption:'Step-by-step framework for handling difficult client scenarios', color:'linear-gradient(135deg,#B45309,#F59E0B)'},
+      {type:'image', title:'Student Transformation Showcase', caption:'Communication scores: pre-training vs. post-training comparison', color:'linear-gradient(135deg,#C43E10,#F15A24)'}
+    ]
+  },
+  'client-success': {
+    initial:'S', name:'Client Success Manager', title:'Accounts & Relationship Growth', dept:'Client Success',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#F5895A,#C43E10)',
+    availText:'Core Team', availColor:'#F5895A',
+    tagline:"My job is making sure your VA relationship doesn't just work — it thrives.",
+    aboutCards:[
+      {label:'Who I Am', text:'Account manager and relationship builder. The go-to person for making sure every client is heard, every placement is performing, and every issue is resolved fast.'},
+      {label:'What I Do', text:'Bridge the gap between clients and their VAs. Manage accounts, monitor performance, handle escalations, and ensure every engagement delivers real ROI.'},
+      {label:'What I Love', text:"Long-term client relationships. When a client starts with one VA and comes back for a full team — that's the best proof of work I can have."}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'Client Success Manager', company:'Adsidi.co', desc:'Manages all active client accounts, tracks VA performance, handles escalations, and ensures ongoing satisfaction across every placement and engagement.'},
+      {year:'2020 – 2023', role:'Account Manager', company:'Remote Services Agency', desc:'Managed portfolio of 40+ B2B accounts across e-commerce, real estate, and coaching industries. Maintained 94% client retention rate.'}
+    ],
+    skills:['Account Management','Client Relations','CRM Systems','Conflict Resolution','Performance Monitoring','SLA Management','Reporting','Onboarding','Upselling','Stakeholder Communication','Zendesk','GoHighLevel'],
+    isTeamMember:true,
+    packages:[
+      {name:'Check-In', price:'Free', desc:'Free 30-min account health review for existing clients.', features:['VA performance review','Issue identification','Actionable recommendations','No commitment required'], featured:false},
+      {name:'Active', price:'Included', desc:'Ongoing client success support — included with all placements.', features:['Dedicated success manager','Monthly performance reports','VA relationship monitoring','Issue escalation handling','Quarterly strategy review'], featured:true},
+      {name:'VIP', price:'Custom', desc:'White-glove account management for enterprise clients.', features:['Priority response SLA','Weekly executive reports','Dedicated Slack channel','Proactive risk management','Custom KPI dashboards'], featured:false}
+    ],
+    outputs:[
+      {type:'image', title:'Client Retention Dashboard', caption:'94% retention rate across 40+ active accounts — Q1 2025', color:'linear-gradient(135deg,#F5895A,#C43E10)'},
+      {type:'doc', title:'Account Health Report Template', caption:'Monthly performance review format sent to all clients', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'video', title:'VA Placement Review — 90 Days', caption:'Client success story: 3-month placement review video call', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'image', title:'Client Satisfaction Snapshot', caption:'NPS score breakdown across all active placements this quarter', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'doc', title:'Escalation Resolution Playbook', caption:'Internal SOP for client issue handling — under 24hr resolution', color:'linear-gradient(135deg,#B45309,#F59E0B)'},
+      {type:'image', title:'Upsell & Expansion Wins', caption:'10 clients who grew from 1 VA to 3+ in under 6 months', color:'linear-gradient(135deg,#C43E10,#F15A24)'}
+    ]
+  },
+  partner: {
+    initial:'P', name:'Strategic Partner', title:'Business Development & Growth', dept:'Partnership',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#0F4C81,#1A6BAF)',
+    availText:'Partner', availColor:'#5A9FD4',
+    tagline:"Adsidi's reach grows with every partnership we build. I make those connections happen.",
+    aboutCards:[
+      {label:'Who I Am', text:"Business development leader and strategic thinker. Focused on expanding Adsidi's network and creating win-win partnerships for agencies, clients, and VAs alike."},
+      {label:'What I Do', text:"Drive Adsidi's B2B partnerships, referral programs, and market expansion. Connect the agency with platforms, business owners, and strategic allies."},
+      {label:'What I Love', text:'Building relationships that open doors — for the agency, for our clients, and for every VA who benefits from a wider network of opportunities.'}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'Strategic Partner', company:'Adsidi.co', desc:'Leads business development, partnership acquisition, and market expansion strategy for Adsidi.co across key growth markets.'},
+      {year:'2019 – 2023', role:'Business Development Manager', company:'Digital Growth Agency', desc:'Managed partnership pipelines, agency referral programs, and key account development across the Asia-Pacific digital services market.'}
+    ],
+    skills:['Business Development','Partnership Management','Sales Strategy','Negotiation','Market Research','Networking','CRM Strategy','Proposal Writing','Revenue Growth','Stakeholder Management','Digital Marketing','B2B Relations'],
+    isTeamMember:true,
+    packages:[
+      {name:'Referral', price:'Commission', desc:'Refer clients to Adsidi.co and earn on each placement.', features:['10% referral commission','Dedicated partner link','Real-time tracking dashboard','Monthly payout','No cap on earnings'], featured:false},
+      {name:'Agency', price:'Custom', desc:'White-label Adsidi VA services for your own agency.', features:['Branded VA placements','Volume pricing access','Co-marketing opportunities','Dedicated partner manager','Quarterly business review'], featured:true},
+      {name:'Enterprise', price:'Custom', desc:'Full strategic alliance with Adsidi.co.', features:['Joint venture opportunities','Exclusive market territories','Revenue share model','Executive introductions','Co-branded campaigns'], featured:false}
+    ],
+    outputs:[
+      {type:'image', title:'Partnership Network Map', caption:'Current B2B partnership portfolio — 15 active agency partners', color:'linear-gradient(135deg,#0F4C81,#1A6BAF)'},
+      {type:'doc', title:'Agency Partner Proposal Template', caption:'White-label Adsidi partnership deck used in outreach', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'video', title:'Partner Spotlight — Agency Co.', caption:'How one referral partner earned ₱80K in commissions in 4 months', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'image', title:'Revenue Growth by Channel', caption:'Partnership-driven revenue breakdown — FY 2024–2025', color:'linear-gradient(135deg,#C43E10,#F15A24)'},
+      {type:'doc', title:'Referral Commission Tracker', caption:'Monthly payout report for active affiliate partners', color:'linear-gradient(135deg,#B45309,#F59E0B)'},
+      {type:'image', title:'Co-Marketing Campaign Results', caption:'Joint social campaign with 3 partners — combined 120K reach', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'}
+    ]
+  },
+  qa: {
+    initial:'Q', name:'Quality & Ops Lead', title:'Standards, Review & Compliance', dept:'Quality Control',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#1C110B,#F15A24)',
+    availText:'Core Team', availColor:'#F5895A',
+    tagline:"The Adsidi standard isn't just a label — it's a promise. I make sure we keep it.",
+    aboutCards:[
+      {label:'Who I Am', text:'Operations specialist and quality guardian. Dedicated to maintaining the high standards that make an Adsidi VA truly elite and client-ready.'},
+      {label:'What I Do', text:'Review VA output, run credential assessments, manage internal processes, and ensure every deliverable exceeds client expectations consistently.'},
+      {label:'What I Love', text:"Systems and consistency. When the processes are right, everyone wins — the VA, the client, and the agency."}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'Quality & Operations Lead', company:'Adsidi.co', desc:'Manages quality control processes, VA credential assessments, performance reviews, and operational standards across all active placements.'},
+      {year:'2020 – 2023', role:'Operations Manager', company:'BPO & Remote Agency', desc:'Oversaw quality assurance, SLA management, and process improvement for a team of 60+ remote workers across multiple client accounts.'}
+    ],
+    skills:['Quality Assurance','Process Improvement','Operations Management','SLA Compliance','Performance Review','Documentation','Risk Management','Auditing','Team Supervision','Reporting','System Design','Training Compliance'],
+    isTeamMember:true,
+    packages:[
+      {name:'Audit', price:'Free', desc:'Free VA performance spot-check for new clients.', features:['Single VA review','Output quality check','Feedback report','Improvement recommendations'], featured:false},
+      {name:'Standard', price:'Included', desc:'Quality monitoring included with every Adsidi placement.', features:['Ongoing output reviews','Monthly QA reports','Credential re-verification','SLA compliance tracking','Issue flagging & resolution'], featured:true},
+      {name:'Enterprise QA', price:'Custom', desc:'Dedicated QA layer for large VA teams.', features:['Dedicated QA officer','Weekly performance audits','Custom scoring rubrics','SLA breach alerts','Executive quality dashboard'], featured:false}
+    ],
+    outputs:[
+      {type:'doc', title:'VA Quality Scoring Rubric', caption:'Internal framework for evaluating VA output across all service types', color:'linear-gradient(135deg,#1C110B,#F15A24)'},
+      {type:'image', title:'QA Dashboard — Q1 2025', caption:'Output quality metrics across 35 active VA placements', color:'linear-gradient(135deg,#C43E10,#F15A24)'},
+      {type:'doc', title:'SLA Compliance Report', caption:'100% SLA adherence tracked over 12 consecutive months', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'video', title:'Process Audit Walkthrough', caption:'How Adsidi QA reviews and scores VA deliverables', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'image', title:'Credential Verification System', caption:'VA skills verification and badge issuance pipeline overview', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'doc', title:'Ops Risk Register Template', caption:'Operational risk tracking tool used across all client accounts', color:'linear-gradient(135deg,#B45309,#F59E0B)'}
+    ]
+  },
+  andrea: {
+    initial:'A', name:'Andrea M.', title:'Executive VA · Social Media Specialist', dept:'Elite VA',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#C43E10,#F15A24)',
+    availText:'Available Now', availColor:'#27AE60',
+    tagline:"I help busy executives reclaim their time while keeping their brand active, consistent, and growing.",
+    aboutCards:[
+      {label:'Who I Am', text:'Detail-oriented executive VA with a strong background in social media management, calendar coordination, and email marketing for service-based businesses.'},
+      {label:'What I Do', text:'Handle everything from inbox management and scheduling to social content creation, CRM updates, and professional client communications.'},
+      {label:'What I Love', text:"Making chaos look organized. Give me a messy calendar and a cluttered inbox — I'll have them sorted before you finish your coffee."}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'Executive VA · Social Media Manager', company:'Adsidi.co (Client Placement)', desc:'Supporting multiple US-based coaching clients with calendar management, email marketing, social media scheduling, and GoHighLevel CRM management.'},
+      {year:'2022 – 2023', role:'Social Media VA', company:'Freelance', desc:'Managed Instagram, Facebook, and LinkedIn accounts for 5 small business clients. Grew average page engagement by 35% in 6 months.'}
+    ],
+    skills:['GoHighLevel','Calendar Management','Email Marketing','Canva','Notion','Instagram','Facebook','Content Scheduling','CRM Updates','Client Communication','Asana','MailChimp'],
+    isTeamMember:false,
+    packages:[
+      {name:'Starter', price:'$8/hr', desc:'Ideal for entrepreneurs needing flexible, part-time support.', features:['Up to 20 hrs/week','Calendar & email management','Social media scheduling','Basic CRM updates'], featured:false},
+      {name:'Growth', price:'$320/mo', desc:'Full social media + executive support package.', features:['40 hrs/month','Full social media management','Email marketing campaigns','CRM & Canva graphics','Weekly report'], featured:true},
+      {name:'Partner', price:'Custom', desc:'Full-time dedicated VA with a custom scope of work.', features:['Full-time availability','Custom task scope','Priority response','Monthly strategy review','Dedicated Slack channel'], featured:false}
+    ],
+    outputs:[
+      {type:'image', title:'Social Media Feed Redesign', caption:'Full Instagram aesthetic overhaul for a US coaching brand', color:'linear-gradient(135deg,#C43E10,#F15A24,#F5895A)'},
+      {type:'image', title:'Email Campaign Graphics', caption:'Canva-designed visuals for a 5-email launch sequence', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'video', title:'Client Testimonial — Sarah K.', caption:'"Andrea saved me 15 hours a week" — 90-day results', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'doc', title:'Monthly Analytics Report', caption:'Content performance tracking across 3 platforms', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'image', title:'GoHighLevel CRM Dashboard', caption:'Custom CRM setup and pipeline management for a realtor', color:'linear-gradient(135deg,#B45309,#F59E0B)'},
+      {type:'video', title:'Before & After — Brand Growth', caption:'Social media growth from 400 to 8K followers in 6 months', color:'linear-gradient(135deg,#BE123C,#F43F5E)'}
+    ]
+  },
+  rico: {
+    initial:'R', name:'Rico S.', title:'Tech VA · Automation Specialist', dept:'Elite VA',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#1C110B,#3D2010)',
+    availText:'Available Now', availColor:'#27AE60',
+    tagline:"I build the systems that let your business run while you sleep.",
+    aboutCards:[
+      {label:'Who I Am', text:'Tech-first VA with deep expertise in GoHighLevel, automation workflows, and funnel building. I make complex systems simple and scalable.'},
+      {label:'What I Do', text:'Build CRM systems, set up automated workflows, create sales funnels, and integrate tools so your operations run without constant manual effort.'},
+      {label:'What I Love', text:"The moment a client realizes their follow-ups are running on autopilot. Automation done right changes everything."}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'Tech VA · Automation Specialist', company:'Adsidi.co (Client Placement)', desc:'Builds GoHighLevel pipelines, Zapier automations, and full CRM systems for real estate and coaching clients in the US market.'},
+      {year:'2021 – 2023', role:'Funnel Builder & CRM Specialist', company:'Freelance', desc:'Delivered 30+ ClickFunnels and GoHighLevel builds for SMEs. Specialized in lead generation funnels and automated email sequences.'}
+    ],
+    skills:['GoHighLevel','Zapier','Make.com','Funnel Building','CRM Setup','ClickFunnels','Email Automation','Webhook Integration','Pipeline Management','Landing Pages','API Basics','Notion Automation'],
+    isTeamMember:false,
+    packages:[
+      {name:'Starter', price:'$10/hr', desc:'Hourly automation and CRM support.', features:['GoHighLevel setup','Basic automations','Zapier integrations','Up to 20 hrs/week'], featured:false},
+      {name:'Growth', price:'$500/mo', desc:'Full CRM + funnel build package.', features:['40 hrs/month','Full CRM buildout','Funnel creation','Automation workflows','Monthly optimization'], featured:true},
+      {name:'Partner', price:'Custom', desc:'Ongoing tech VA with full-stack automation scope.', features:['Full-time availability','Complex systems','Priority support','Tech stack management','Weekly check-ins'], featured:false}
+    ],
+    outputs:[
+      {type:'image', title:'GoHighLevel CRM Build', caption:'Full pipeline + automation setup for a real estate client', color:'linear-gradient(135deg,#1C110B,#3D2010)'},
+      {type:'video', title:'Zapier Workflow Demo', caption:'Automated lead capture to CRM to email in under 5 minutes', color:'linear-gradient(135deg,#4338CA,#6366F1)'},
+      {type:'doc', title:'Client Automation Audit Report', caption:'Mapped 12 manual tasks → automated workflows', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'image', title:'Sales Funnel — US Coaching Client', caption:'ClickFunnels build with upsell and email integration', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'video', title:'Make.com Scenario Walkthrough', caption:'Multi-step automation handling 200+ leads/day', color:'linear-gradient(135deg,#0F766E,#14B8A6)'},
+      {type:'doc', title:'Tech Stack Recommendation', caption:'Tool audit and migration plan for a scaling business', color:'linear-gradient(135deg,#B45309,#F59E0B)'}
+    ]
+  },
+  maria: {
+    initial:'M', name:'Maria C.', title:'Social Media VA · Content Creator', dept:'Elite VA',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#F5895A,#F15A24)',
+    availText:'Available Now', availColor:'#27AE60',
+    tagline:"I tell your brand's story in a way that stops the scroll and builds a real community.",
+    aboutCards:[
+      {label:'Who I Am', text:'Creative content strategist and social media VA. Passionate about building brands through compelling visuals, authentic copy, and consistent online presence.'},
+      {label:'What I Do', text:'Manage social media accounts, create Canva graphics and CapCut reels, write captions, run Facebook Ads, and schedule content across platforms.'},
+      {label:'What I Love', text:"A great content calendar. When strategy, creativity, and consistency all click — the growth speaks for itself."}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'Social Media VA · Content Creator', company:'Adsidi.co (Client Placement)', desc:'Manages social media presence for 3 e-commerce and coaching brands, creating and scheduling 20+ posts/week across Instagram, Facebook, and TikTok.'},
+      {year:'2022 – 2023', role:'Content Creator & Community Manager', company:'Freelance', desc:'Grew a client Instagram from 800 to 12,000 followers in 8 months through strategic reels, UGC campaigns, and consistent daily engagement.'}
+    ],
+    skills:['Instagram','Facebook Ads','Copywriting','CapCut','Canva','TikTok','Content Calendar','Community Management','Hashtag Strategy','Analytics','Scheduling Tools','Video Editing'],
+    isTeamMember:false,
+    packages:[
+      {name:'Starter', price:'$7/hr', desc:'Flexible content and social support.', features:['3 posts/week','Caption writing','Basic graphics','Platform scheduling'], featured:false},
+      {name:'Growth', price:'$280/mo', desc:'Full social media management package.', features:['5 posts/week','Reels & graphics','Captions & hashtags','Community management','Monthly analytics'], featured:true},
+      {name:'Partner', price:'Custom', desc:'Full-service content + paid ads management.', features:['Daily content','Facebook Ads management','Ad creatives','A/B testing','Weekly strategy call'], featured:false}
+    ],
+    outputs:[
+      {type:'image', title:'Instagram Grid — @healthcoach', caption:'30-day content grid with consistent brand aesthetic', color:'linear-gradient(135deg,#F5895A,#F15A24)'},
+      {type:'video', title:'Reel — Product Launch', caption:'CapCut-edited reel that hit 45K views organically', color:'linear-gradient(135deg,#BE123C,#F43F5E)'},
+      {type:'image', title:'Facebook Ad Creatives', caption:'5-ad carousel set for a skincare brand', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'video', title:'Content Strategy Walkthrough', caption:'How I plan, batch, and schedule 30 posts in a day', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'doc', title:'Monthly Content Calendar', caption:'April 2025 — 20 posts mapped across 4 platforms', color:'linear-gradient(135deg,#B45309,#F59E0B)'},
+      {type:'image', title:'TikTok Growth — 0 to 10K', caption:'8-month account growth with organic reels strategy', color:'linear-gradient(135deg,#0F766E,#14B8A6)'}
+    ]
+  },
+  james: {
+    initial:'J', name:'James P.', title:'Customer Support VA', dept:'Elite VA',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#2D3A4A,#1C110B)',
+    availText:'Available Now', availColor:'#27AE60',
+    tagline:"Every customer interaction is an opportunity to build loyalty. I take that seriously.",
+    aboutCards:[
+      {label:'Who I Am', text:'Customer support specialist with a calm, professional approach. Experienced across live chat, email support, ticket management, and CRM operations.'},
+      {label:'What I Do', text:'Handle customer inquiries, manage support tickets, resolve complaints, and maintain CRM records — keeping your customers happy and your reputation strong.'},
+      {label:'What I Love', text:"Turning a frustrated customer into a loyal one. It takes patience, empathy, and a clear process — I bring all three."}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'Customer Support VA', company:'Adsidi.co (Client Placement)', desc:'Manages customer support for a US-based e-commerce store — handling 80+ tickets/day via Zendesk and live chat with a 97% customer satisfaction rate.'},
+      {year:'2021 – 2023', role:'Customer Service Representative', company:'BPO Company', desc:'Handled inbound and outbound customer support for a major telecom client, maintaining top-performer status for 6 consecutive quarters.'}
+    ],
+    skills:['Zendesk','Live Chat','Email Support','Freshdesk','CRM Management','Ticket Resolution','Escalation Handling','Order Management','Refunds & Returns','Customer Retention','Help Scout','Google Workspace'],
+    isTeamMember:false,
+    packages:[
+      {name:'Starter', price:'$7/hr', desc:'Part-time support coverage for growing businesses.', features:['Email support','Ticket management','Up to 20 hrs/week','CRM updates'], featured:false},
+      {name:'Growth', price:'$600/mo', desc:'Full-time support + live chat coverage.', features:['Full-time hours','Live chat + email','Zendesk management','Weekly reports','SLA adherence'], featured:true},
+      {name:'Partner', price:'Custom', desc:'Extended hours support team coordination.', features:['Extended coverage','Multi-channel support','Team lead duties','Quality monitoring','Custom SLAs'], featured:false}
+    ],
+    outputs:[
+      {type:'doc', title:'Customer Support Playbook', caption:'SOP for handling 10 most common ticket types', color:'linear-gradient(135deg,#2D3A4A,#1C110B)'},
+      {type:'image', title:'Zendesk Dashboard — April Stats', caption:'97% CSAT · 82 tickets/day · 2.1hr avg response', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'video', title:'Customer Interaction Sample', caption:'Live chat resolution — from issue to satisfaction in 8 mins', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'doc', title:'Escalation Flow Chart', caption:'Decision tree for handling refunds, complaints & VIPs', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'image', title:'CSAT Trend Report', caption:'6-month satisfaction improvement after onboarding', color:'linear-gradient(135deg,#B45309,#F59E0B)'},
+      {type:'video', title:'CRM Training Walkthrough', caption:'How I trained a new rep to handle 60 tickets/day', color:'linear-gradient(135deg,#0F766E,#14B8A6)'}
+    ]
+  },
+  sofia: {
+    initial:'S', name:'Sofia L.', title:'Admin VA · Operations Specialist', dept:'Elite VA',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#C43E10,#1C110B)',
+    availText:'Available Now', availColor:'#27AE60',
+    tagline:"Behind every smooth-running business is someone making sure the backend never falls apart. That's me.",
+    aboutCards:[
+      {label:'Who I Am', text:'Operations-minded admin VA with a love for systems, spreadsheets, and structure. I keep businesses running cleanly and efficiently behind the scenes.'},
+      {label:'What I Do', text:'Handle data entry, Google Workspace management, project tracking in Asana and Trello, reporting, and all the admin tasks that keep a business organized.'},
+      {label:'What I Love', text:"A well-built process. When admin is done right, the whole business breathes easier — and owners can actually focus on growing."}
+    ],
+    experience:[
+      {year:'2023 – Present', role:'Admin VA · Operations Specialist', company:'Adsidi.co (Client Placement)', desc:'Provides full admin support to a remote consulting firm — managing Google Workspace, Asana project tracking, monthly reporting, and data management.'},
+      {year:'2021 – 2023', role:'Administrative Assistant', company:'Small Business (Remote)', desc:'Managed data entry, inbox organization, vendor coordination, and weekly operations reporting for a growing e-commerce business.'}
+    ],
+    skills:['Google Workspace','Data Entry','Trello','Asana','Reporting','Spreadsheets','File Management','Inbox Management','Research','Process Documentation','ClickUp','Notion'],
+    isTeamMember:false,
+    packages:[
+      {name:'Starter', price:'$6/hr', desc:'Flexible admin support for small teams.', features:['Data entry & filing','Email management','Calendar updates','Up to 20 hrs/week'], featured:false},
+      {name:'Growth', price:'$240/mo', desc:'Full admin operations support package.', features:['40 hrs/month','Project management','Full inbox + calendar','Monthly reports','Process documentation'], featured:true},
+      {name:'Partner', price:'Custom', desc:'Dedicated full-time operations VA.', features:['Full-time hours','Operations oversight','Team coordination','Custom deliverables','Weekly sync calls'], featured:false}
+    ],
+    outputs:[
+      {type:'doc', title:'Operations SOP Manual', caption:'50-page admin handbook built for a remote consulting firm', color:'linear-gradient(135deg,#C43E10,#1C110B)'},
+      {type:'image', title:'Asana Project Dashboard', caption:'Full project board for a 12-person remote team', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
+      {type:'doc', title:'Weekly Ops Report Template', caption:'Recurring report used by 3 clients every Monday', color:'linear-gradient(135deg,#047857,#10B981)'},
+      {type:'video', title:'Google Workspace Org Walkthrough', caption:'How I structured 5 shared drives for a 20-person org', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
+      {type:'image', title:'ClickUp vs Asana Comparison', caption:'Tool recommendation deck built for a client decision', color:'linear-gradient(135deg,#B45309,#F59E0B)'},
+      {type:'doc', title:'Data Entry Accuracy Audit', caption:'QA audit showing 99.4% entry accuracy over 3 months', color:'linear-gradient(135deg,#0F766E,#14B8A6)'}
+    ]
+  }
+};
+
+function renderPortfolio(slug) {
+  const p = portfolioData[slug];
+  if (!p) return '<div style="padding:80px;text-align:center;color:rgba(255,255,255,0.4);">Profile not found.</div>';
+
+  const iconSVGs = [
+    '<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+    '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+    '<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+  ];
+
+  const aboutHtml = p.aboutCards.map((c,i) => `
+    <div class="port-about-card">
+      <div class="port-about-card__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">${iconSVGs[i]}</svg>
+      </div>
+      <div class="port-about-card__label">${c.label}</div>
+      <p class="port-about-card__text">${c.text}</p>
+    </div>`).join('');
+
+  const expHtml = p.experience.map(e => `
+    <div class="port-exp-card">
+      <div class="port-exp-year">${e.year}</div>
+      <div class="port-exp-role">${e.role}</div>
+      <div class="port-exp-company">${e.company}</div>
+      <p class="port-exp-desc">${e.desc}</p>
+    </div>`).join('');
+
+  const skillsHtml = p.skills.map(s => `<div class="port-skill-pill">${s}</div>`).join('');
+
+  let pkgSection = '';
+  if (p.packages) {
+    const pkgHtml = p.packages.map(pkg => `
+      <div class="port-pkg${pkg.featured ? ' port-pkg--featured' : ''}">
+        ${pkg.featured ? '<div class="port-pkg__badge">MOST POPULAR</div>' : ''}
+        <div class="port-pkg__name">${pkg.name}</div>
+        <div class="port-pkg__price">${pkg.price}</div>
+        <p class="port-pkg__desc">${pkg.desc}</p>
+        <ul class="port-pkg__features">
+          ${pkg.features.map(f => `<li>${f}</li>`).join('')}
+        </ul>
+        <button class="btn btn--primary" style="width:100%;justify-content:center;font-size:13px;" onclick="openCalendly()">
+          ${p.isTeamMember ? 'Book a Call' : 'Hire ' + p.name.split(' ')[0]}
+        </button>
+      </div>`).join('');
+    pkgSection = `
+      <div class="port-section">
+        <div class="container">
+          <span class="port-section-label">PACKAGES</span>
+          <h2 class="port-section-title">Pricing &amp; Packages</h2>
+          <div class="port-pricing-grid">${pkgHtml}</div>
+        </div>
+      </div>`;
+  } else {
+    pkgSection = `
+      <div class="port-section">
+        <div class="container">
+          <span class="port-section-label">WORK WITH US</span>
+          <h2 class="port-section-title">Book a Strategy Call</h2>
+          <div class="port-strat-box">
+            <div class="port-strat-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <p style="font-size:15px;color:var(--pt-text);line-height:1.75;margin-bottom:28px;">
+              Want to connect with ${p.name}? Book a strategy call with the Adsidi.co team and we'll route your inquiry to the right person within 24 hours.
+            </p>
+            <button class="btn btn--primary" style="margin:0 auto;" onclick="openCalendly()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+              Book a Strategy Call
+            </button>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  const fn = p.name.split(' ')[0];
+  return `
+    <div class="port-hero">
+      <div class="port-hero__deco1"></div>
+      <div class="port-hero__deco2"></div>
+      <div class="port-hero__grid-bg"></div>
+      <div class="container" style="position:relative;z-index:2;">
+        <div class="port-hero__grid">
+          <div class="port-hero__avatar-wrap">
+            <div class="port-hero__avatar" style="background:${p.avatarGrad};">${p.initial}</div>
+            <div class="port-hero__avail" style="background:${p.availColor};">${p.availText}</div>
+          </div>
+          <div>
+            <span class="port-hero__tag">${p.dept} &middot; Adsidi.co</span>
+            <h1 class="port-hero__name">${p.name}</h1>
+            <div class="port-hero__title">${p.title} &middot; ${p.location}</div>
+            <p class="port-hero__tagline">&ldquo;${p.tagline}&rdquo;</p>
+            <div class="port-hero__actions">
+              <button class="btn btn--primary" onclick="openCalendly()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="white" stroke-width="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                Book a Call
+              </button>
+              <button class="btn btn--outline" onclick="document.getElementById('portMsg').scrollIntoView({behavior:'smooth'})">Send a Message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="port-section port-section--alt">
+      <div class="container">
+        <span class="port-section-label">ABOUT</span>
+        <h2 class="port-section-title">Getting to Know ${fn}</h2>
+        <div class="port-about-grid">${aboutHtml}</div>
+      </div>
+    </div>
+
+    <div class="port-section">
+      <div class="container">
+        <span class="port-section-label">EXPERIENCE</span>
+        <h2 class="port-section-title">Professional Timeline</h2>
+        <div class="port-exp-list">${expHtml}</div>
+      </div>
+    </div>
+
+    <div class="port-section port-section--alt">
+      <div class="container">
+        <span class="port-section-label">SKILLS &amp; TOOLS</span>
+        <h2 class="port-section-title">What ${fn} Brings to the Table</h2>
+        <div class="port-skills-grid">${skillsHtml}</div>
+      </div>
+    </div>
+
+    ${pkgSection}
+
+    ${p.outputs && p.outputs.length ? `
+    <div class="port-section">
+      <div class="container">
+        <span class="port-section-label">PORTFOLIO & OUTPUTS</span>
+        <h2 class="port-section-title">Work Samples &amp; Results</h2>
+        <div class="port-outputs-grid">
+          ${p.outputs.map(out => {
+            const isVideo = out.type === 'video';
+            const isDoc = out.type === 'doc';
+            const typeLabel = isVideo ? 'Video' : isDoc ? 'Document' : 'Design';
+            const thumbContent = isVideo
+              ? `<div class="port-output-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8 5l13 7-13 7V5z" fill="white"/></svg></div>`
+              : isDoc
+              ? `<svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/></svg>`
+              : `<svg width="40" height="40" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" fill="rgba(255,255,255,0.5)"/><path d="M21 15l-5-5L5 21" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            return `
+              <div class="port-output-card" onclick="openCalendly()">
+                <div class="port-output-thumb" style="background:${out.color};">
+                  ${thumbContent}
+                  <div class="port-output-type">${typeLabel}</div>
+                </div>
+                <div class="port-output-body">
+                  <div class="port-output-title">${out.title}</div>
+                  <div class="port-output-caption">${out.caption}</div>
+                </div>
+              </div>`;
+          }).join('')}
+        </div>
+      </div>
+    </div>` : ''}
+
+    <div class="port-section port-section--alt" id="portMsg">
+      <div class="container">
+        <span class="port-section-label">CONTACT</span>
+        <h2 class="port-section-title">Send ${fn} a Message</h2>
+        <div class="port-contact-grid">
+          <form class="port-form" onsubmit="submitPortContact(event)">
+            <input class="port-input" type="text" placeholder="Your Name" required/>
+            <input class="port-input" type="email" placeholder="Your Email" required/>
+            <input class="port-input" type="text" placeholder="Subject"/>
+            <textarea class="port-input" rows="5" placeholder="Your message..."></textarea>
+            <button class="btn btn--primary" type="submit" style="align-self:flex-start;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Send Message
+            </button>
+          </form>
+          <div class="port-contact-info">
+            <div class="port-contact-item">
+              <div class="port-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg></div>
+              <div><div class="port-contact-label">Location</div><div class="port-contact-value">${p.location}</div></div>
+            </div>
+            <div class="port-contact-item">
+              <div class="port-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 13L14 7M14 7H9M14 7V12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div><div class="port-contact-label">Agency</div><div class="port-contact-value">Adsidi.co &middot; Premier VA Agency</div></div>
+            </div>
+            <div class="port-contact-item">
+              <div class="port-contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+              <div><div class="port-contact-label">Email</div><div class="port-contact-value">hello@adsidi.co</div></div>
+            </div>
+            <div>
+              <div class="port-contact-label" style="margin-bottom:12px;">Connect on Social</div>
+              <div class="port-social-row">
+                <div class="port-social-btn" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/></svg></div>
+                <div class="port-social-btn" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="rgba(255,255,255,0.6)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="rgba(255,255,255,0.6)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="rgba(255,255,255,0.6)"/></svg></div>
+                <div class="port-social-btn" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="4" r="2" stroke="rgba(255,255,255,0.6)" stroke-width="2"/></svg></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="port-footer">
+      <div class="port-footer__credit">
+        This portfolio is hosted by <span>Adsidi.co</span> &mdash; Premier Virtual Assistant Agency
+      </div>
+      <button class="btn btn--ghost" style="font-size:12px;padding:9px 20px;" onclick="closePortfolio()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Adsidi.co
+      </button>
+    </div>
+  `;
+}
+
+function openPortfolio(slug) {
+  const overlay = document.getElementById('portfolioOverlay');
+  document.getElementById('portfolioContent').innerHTML = renderPortfolio(slug);
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closePortfolio() {
+  document.getElementById('portfolioOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function submitPortContact(e) {
+  e.preventDefault();
+  e.target.innerHTML = `
+    <div style="text-align:center;padding:48px 24px;">
+      <div style="width:64px;height:64px;border-radius:50%;background:rgba(39,174,96,0.12);border:1.5px solid rgba(39,174,96,0.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#27AE60" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-size:20px;font-weight:700;color:#fff;margin-bottom:10px;">Message Sent!</div>
+      <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;">The Adsidi.co team will route your message and get back to you within 24 hours.</p>
+    </div>`;
+}
+
+/* ── Close portfolio on Escape key ── */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closePortfolio();
+    closeCustPanel();
+  }
+});
+
+/* ══════════════════════════════════════════════════
+   SITE DARK / LIGHT TOGGLE
+══════════════════════════════════════════════════ */
+let siteIsLight = false;
+const moonIcon = `<circle cx="12" cy="12" r="5" stroke="rgba(255,255,255,0.8)" stroke-width="2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/>`;
+const sunIcon  = `<path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" stroke="rgba(28,17,11,0.75)" stroke-width="2" stroke-linecap="round"/>`;
+
+function toggleSiteTheme() {
+  siteIsLight = !siteIsLight;
+  document.body.classList.toggle('site-light', siteIsLight);
+  document.getElementById('siteThemeIcon').innerHTML = siteIsLight ? sunIcon : moonIcon;
+  localStorage.setItem('adsidi-site-theme', siteIsLight ? 'light' : 'dark');
+}
+
+// Restore saved preference
+(function() {
+  const saved = localStorage.getItem('adsidi-site-theme');
+  if (saved === 'light') toggleSiteTheme();
+})();
+
+/* ══════════════════════════════════════════════════
+   PORTFOLIO THEME & MODE
+══════════════════════════════════════════════════ */
+let currentPortSlug = '';
+let portTheme = 'ember';
+let portMode = 'dark';
+
+function openPortfolio(slug) {
+  currentPortSlug = slug;
+  const saved = JSON.parse(localStorage.getItem('port-prefs-' + slug) || '{}');
+  portTheme = saved.theme || 'ember';
+  portMode  = saved.mode  || 'dark';
+
+  const overlay = document.getElementById('portfolioOverlay');
+  document.getElementById('portfolioContent').innerHTML = renderPortfolio(slug);
+  applyPortTheme(overlay);
+  overlay.classList.add('open');
+  overlay.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+
+  // Sync panel UI
+  updateCustPanelUI();
+}
+
+function applyPortTheme(overlay) {
+  overlay = overlay || document.getElementById('portfolioOverlay');
+  // Remove all theme/mode classes
+  overlay.classList.remove('port-light','theme-ember','theme-ocean','theme-violet','theme-emerald','theme-rose','theme-amber','theme-indigo','theme-teal');
+  overlay.classList.add('theme-' + portTheme);
+  if (portMode === 'light') overlay.classList.add('port-light');
+}
+
+function setPortTheme(theme) {
+  portTheme = theme;
+  applyPortTheme();
+  savePortPrefs();
+  updateCustPanelUI();
+}
+
+function setPortMode(mode) {
+  portMode = mode;
+  applyPortTheme();
+  savePortPrefs();
+  updateCustPanelUI();
+}
+
+function savePortPrefs() {
+  if (currentPortSlug) {
+    localStorage.setItem('port-prefs-' + currentPortSlug, JSON.stringify({theme: portTheme, mode: portMode}));
+  }
+}
+
+function updateCustPanelUI() {
+  // Mode buttons
+  ['Dark','Light'].forEach(m => {
+    const btn = document.getElementById('mode' + m);
+    if (btn) btn.classList.toggle('active', portMode === m.toLowerCase());
+  });
+  // Theme swatches
+  ['ember','ocean','violet','emerald','rose','amber','indigo','teal'].forEach(t => {
+    const sw = document.getElementById('sw-' + t);
+    if (sw) sw.classList.toggle('active', portTheme === t);
+  });
+}
+
+function toggleCustPanel() {
+  document.getElementById('portCustPanel').classList.toggle('open');
+}
+
+function closeCustPanel() {
+  const p = document.getElementById('portCustPanel');
+  if (p) p.classList.remove('open');
+}
+
+// Close customize panel when clicking outside
+document.addEventListener('click', e => {
+  const panel = document.getElementById('portCustPanel');
+  const btn = document.getElementById('portCustBtn');
+  if (panel && panel.classList.contains('open') && !panel.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>
