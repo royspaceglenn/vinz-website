@@ -9,15 +9,15 @@
 /* ─── RESET & BASE ─────────────────────────────── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --bp:#F15A24;--bl:#F5895A;--bd:#C43E10;
-  --lbg:#FDF5EF;--lbr:#EDE0D4;--dbg:#1C110B;
-  --dark:#0F0905;--white:#fff;
-  --grad:linear-gradient(135deg,#C43E10 0%,#F15A24 55%,#F5895A 100%);
+  --bp:#E8335A;--bl:#FF6B84;--bd:#C2194A;
+  --lbg:#FDF1F4;--lbr:#F0D4DC;--dbg:#180B12;
+  --dark:#0D0508;--white:#fff;
+  --grad:linear-gradient(135deg,#FF5C2B 0%,#E8335A 45%,#C5166E 100%);
   --sans:'Plus Jakarta Sans',sans-serif;
   --nav-h:72px;
 }
 html{scroll-behavior:smooth;font-family:var(--sans);}
-body{background:#fff;color:#1C110B;overflow-x:hidden;}
+body{background:#fff;color:#1C0F17;overflow-x:hidden;}
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;}
 section{padding:96px 0;}
@@ -26,23 +26,23 @@ section{padding:96px 0;}
 /* ─── UTILITY ─────────────────────────────────── */
 .tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:2.5px;
      text-transform:uppercase;}
-.tag--orange{color:var(--bp);}  /* brand primary */
+.tag--orange{color:var(--bp);}  /* brand primary — now red-magenta */
 .tag--light{color:var(--bl);}
 .tag--muted{color:rgba(255,255,255,0.55);}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;
      border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;
      transition:all .2s ease;border:none;font-family:var(--sans);}
 .btn--primary{background:var(--grad);color:#fff;
-  box-shadow:0 4px 24px rgba(241,90,36,0.35);}
-.btn--primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(241,90,36,0.45);}
+  box-shadow:0 4px 24px rgba(232,51,90,0.35);}
+.btn--primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(232,51,90,0.45);}
 .btn--outline{background:transparent;color:#fff;
   border:1.5px solid rgba(255,255,255,0.4);}
 .btn--outline:hover{background:rgba(255,255,255,0.08);}
 .btn--dark{background:var(--dbg);color:#fff;}
-.btn--dark:hover{background:#2a1a10;}
-.btn--ghost{background:rgba(241,90,36,0.1);color:var(--bp);
-  border:1.5px solid rgba(241,90,36,0.25);}
-.btn--ghost:hover{background:rgba(241,90,36,0.18);}
+.btn--dark:hover{background:#1a0810;}
+.btn--ghost{background:rgba(232,51,90,0.1);color:var(--bp);
+  border:1.5px solid rgba(232,51,90,0.25);}
+.btn--ghost:hover{background:rgba(232,51,90,0.18);}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
 
@@ -69,7 +69,7 @@ section{padding:96px 0;}
   transition:color .2s;cursor:pointer;letter-spacing:0.2px;
   padding:6px 0;border-bottom:2px solid transparent;
   transition:color .2s,border-color .2s;white-space:nowrap;}
-.nav__link:hover{color:#fff;border-bottom-color:rgba(241,90,36,0.6);}
+.nav__link:hover{color:#fff;border-bottom-color:rgba(232,51,90,0.6);}
 .nav__cta{display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .nav__burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
 .nav__burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.3s;}
@@ -80,18 +80,18 @@ section{padding:96px 0;}
   position:relative;overflow:hidden;padding-top:var(--nav-h);}
 .hero__bg-glow{position:absolute;pointer-events:none;}
 .hero__bg-glow--1{top:-120px;right:-80px;width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(241,90,36,0.22) 0%,transparent 65%);}
+  background:radial-gradient(circle,rgba(232,51,90,0.22) 0%,transparent 65%);}
 .hero__bg-glow--2{bottom:-100px;left:-100px;width:500px;height:500px;border-radius:50%;
-  background:radial-gradient(circle,rgba(196,62,16,0.15) 0%,transparent 65%);}
+  background:radial-gradient(circle,rgba(194,25,74,0.15) 0%,transparent 65%);}
 .hero__grid-bg{position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(241,90,36,0.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(241,90,36,0.04) 1px,transparent 1px);
+    linear-gradient(rgba(232,51,90,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(232,51,90,0.04) 1px,transparent 1px);
   background-size:60px 60px;}
 .hero__content{position:relative;z-index:2;padding:80px 0 60px;}
 .hero__eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
 .hero__eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--bp);
-  box-shadow:0 0 12px rgba(241,90,36,0.7);animation:pulse 2s infinite;}
+  box-shadow:0 0 12px rgba(232,51,90,0.7);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 .hero__headline{font-size:clamp(42px,6vw,76px);font-weight:800;color:#fff;
   line-height:1.0;letter-spacing:-1.5px;margin-bottom:24px;}
@@ -134,15 +134,15 @@ section{padding:96px 0;}
 .section-header .tag{margin-bottom:14px;display:block;}
 .section-title{font-size:clamp(28px,4vw,44px);font-weight:800;
   color:var(--dbg);line-height:1.1;letter-spacing:-0.8px;margin-bottom:16px;}
-.section-sub{font-size:16px;color:#7A6558;max-width:520px;margin:0 auto;line-height:1.65;}
+.section-sub{font-size:16px;color:#6B5060;max-width:520px;margin:0 auto;line-height:1.65;}
 .hiw__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 .hiw__step{padding:36px 32px;border-radius:20px;border:1.5px solid var(--lbr);
   position:relative;background:#fff;transition:border-color .2s,box-shadow .2s;}
-.hiw__step:hover{border-color:var(--bp);box-shadow:0 8px 40px rgba(241,90,36,0.1);}
+.hiw__step:hover{border-color:var(--bp);box-shadow:0 8px 40px rgba(232,51,90,0.1);}
 .hiw__step-num{font-size:11px;font-weight:700;letter-spacing:2px;
   color:var(--bp);margin-bottom:20px;display:block;}
 .hiw__step-icon{width:48px;height:48px;border-radius:12px;
-  background:rgba(241,90,36,0.1);display:flex;align-items:center;justify-content:center;
+  background:rgba(232,51,90,0.1);display:flex;align-items:center;justify-content:center;
   margin-bottom:20px;}
 .hiw__step-title{font-size:18px;font-weight:700;color:var(--dbg);margin-bottom:10px;}
 .hiw__step-text{font-size:14px;color:#7A6558;line-height:1.65;}
@@ -249,15 +249,15 @@ section{padding:96px 0;}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .team-card{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);
   background:rgba(255,255,255,0.04);transition:transform .25s,border-color .25s,background .25s;}
-.team-card:hover{transform:translateY(-5px);border-color:rgba(241,90,36,0.35);
+.team-card:hover{transform:translateY(-5px);border-color:rgba(232,51,90,0.35);
   background:rgba(255,255,255,0.07);}
 .team-card__top{padding:28px 24px 20px;display:flex;align-items:flex-start;gap:16px;}
 .team-avatar{width:56px;height:56px;border-radius:50%;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
   font-size:20px;font-weight:800;color:#fff;border:2px solid rgba(255,255,255,0.15);}
 .team-card__dept{display:inline-flex;align-items:center;gap:5px;margin-bottom:6px;
-  padding:3px 10px;border-radius:20px;background:rgba(241,90,36,0.15);
-  border:1px solid rgba(241,90,36,0.25);
+  padding:3px 10px;border-radius:20px;background:rgba(232,51,90,0.15);
+  border:1px solid rgba(232,51,90,0.25);
   font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--bl);}
 .team-card__name{font-size:15px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:3px;}
 .team-card__title{font-size:12px;color:rgba(255,255,255,0.5);font-weight:500;}
@@ -328,7 +328,7 @@ section{padding:96px 0;}
   background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);
   display:flex;align-items:center;justify-content:center;cursor:pointer;
   transition:background .2s;}
-.footer__social-btn:hover{background:rgba(241,90,36,0.2);}
+.footer__social-btn:hover{background:rgba(232,51,90,0.2);}
 .footer__col-title{font-size:12px;font-weight:700;letter-spacing:1.5px;
   text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:20px;}
 .footer__link{display:block;font-size:13px;color:rgba(255,255,255,0.55);
@@ -361,7 +361,7 @@ section{padding:96px 0;}
 .modal__option:hover{border-color:var(--bp);background:var(--lbg);}
 .modal__option.selected{border-color:var(--bp);background:var(--lbg);}
 .modal__option-icon{width:40px;height:40px;border-radius:10px;
-  background:rgba(241,90,36,0.1);display:flex;align-items:center;justify-content:center;
+  background:rgba(232,51,90,0.1);display:flex;align-items:center;justify-content:center;
   flex-shrink:0;}
 .modal__option-title{font-size:14px;font-weight:700;color:var(--dbg);margin-bottom:3px;}
 .modal__option-text{font-size:12px;color:#7A6558;line-height:1.5;}
@@ -605,7 +605,7 @@ body.site-light{
 body.site-light .nav{background:rgba(248,244,241,0.92) !important;border-bottom-color:rgba(28,17,11,0.1);}
 body.site-light .nav.scrolled{background:rgba(248,244,241,0.99) !important;box-shadow:0 4px 24px rgba(0,0,0,0.08);}
 body.site-light .nav__logo-text,body.site-light .nav__link{color:rgba(28,17,11,0.65);}
-body.site-light .nav__link:hover{color:#1C110B;}
+body.site-light .nav__link:hover{color:#180B12;}
 body.site-light .btn--outline{color:var(--dbg);border-color:rgba(28,17,11,0.3);}
 body.site-light .btn--outline:hover{background:rgba(28,17,11,0.06);}
 body.site-light .hero{background:var(--lbg);}
@@ -625,7 +625,7 @@ body.site-light .team-ceo__quote{background:rgba(28,17,11,0.04);border-color:rgb
 body.site-light .team-ceo__quote-text{color:var(--dbg);}
 body.site-light .team-ceo__quote-attr{color:rgba(28,17,11,0.4);}
 body.site-light .team-card{background:rgba(28,17,11,0.03);border-color:rgba(28,17,11,0.1);}
-body.site-light .team-card:hover{background:rgba(28,17,11,0.06);border-color:rgba(241,90,36,0.4);}
+body.site-light .team-card:hover{background:rgba(28,17,11,0.06);border-color:rgba(232,51,90,0.4);}
 body.site-light .team-card__name{color:var(--dbg);}
 body.site-light .team-card__title{color:rgba(28,17,11,0.5);}
 body.site-light .team-card__bio{color:rgba(28,17,11,0.65);border-top-color:rgba(28,17,11,0.08);}
@@ -635,10 +635,10 @@ body.site-light .team-social-btn svg path,body.site-light .team-social-btn svg c
 body.site-light .story,
 body.site-light .system,
 body.site-light .waitlist,
-body.site-light .get-page { background: #0F0905 !important; }
+body.site-light .get-page { background: #0D0508 !important; }
 body.site-light .get-page__visual{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1);}
 body.site-light .get-page__feat-list li{color:rgba(255,255,255,0.7);border-bottom-color:rgba(255,255,255,0.08);}
-body.site-light .footer{background:#1C110B;}
+body.site-light .footer{background:#180B12;}
 body.site-light .mobile-menu{background:rgba(248,244,241,0.99);}
 body.site-light .mobile-menu .nav__link{color:rgba(28,17,11,0.75);}
 
@@ -650,19 +650,19 @@ body.site-light .mobile-menu .nav__link{color:rgba(28,17,11,0.75);}
   cursor:pointer;transition:all .2s;flex-shrink:0;
 }
 body.site-light .site-theme-btn{background:rgba(28,17,11,0.08);border-color:rgba(28,17,11,0.18);}
-.site-theme-btn:hover{background:rgba(241,90,36,0.2);border-color:rgba(241,90,36,0.4);}
+.site-theme-btn:hover{background:rgba(232,51,90,0.2);border-color:rgba(232,51,90,0.4);}
 
 /* ─── CEILING / PROBLEM SECTION ─────────────── */
 .ceiling{background:var(--lbg);padding:96px 0;}
 body.site-light .ceiling{background:#F4E8EC;}
 .ceiling__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
 .ceiling-card{background:#fff;border:1.5px solid rgba(28,17,11,0.08);border-radius:20px;padding:32px 28px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;}
-.ceiling-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(241,90,36,0.1);}
+.ceiling-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(232,51,90,0.1);}
 .ceiling__grid .ceiling-card:nth-child(2){margin-top:28px;}
 .ceiling__grid .ceiling-card:nth-child(3){margin-top:12px;}
 body.site-light .ceiling-card{background:rgba(255,255,255,0.9);}
 .ceiling-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);}
-.ceiling-card__num{font-size:48px;font-weight:900;color:rgba(241,90,36,0.08);line-height:1;margin-bottom:16px;}
+.ceiling-card__num{font-size:48px;font-weight:900;color:rgba(232,51,90,0.08);line-height:1;margin-bottom:16px;}
 .ceiling-card__title{font-size:18px;font-weight:700;color:var(--dbg);margin-bottom:12px;}
 .ceiling-card__text{font-size:14px;color:rgba(28,17,11,0.6);line-height:1.7;}
 /* ─── 3-PILLAR SYSTEM ────────────────────────── */
@@ -671,7 +671,7 @@ body.site-light .ceiling-card{background:rgba(255,255,255,0.9);}
 .system-card{background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.07);border-radius:20px;padding:36px 28px;text-align:center;transition:border-color .25s,transform .25s;}
 .system-card:hover{border-color:var(--bp);transform:translateY(-6px);}
 .system-card__num{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--bp);margin-bottom:20px;}
-.system-card__icon{width:64px;height:64px;border-radius:16px;background:rgba(241,90,36,0.1);border:1.5px solid rgba(241,90,36,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+.system-card__icon{width:64px;height:64px;border-radius:16px;background:rgba(232,51,90,0.1);border:1.5px solid rgba(232,51,90,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
 .system-card__title{font-size:20px;font-weight:800;color:#fff;margin-bottom:12px;}
 .system-card__sub{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--bl);margin-bottom:16px;}
 .system-card__text{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;}
@@ -689,15 +689,15 @@ body.site-light .products{background:#F4E8EC;}
 .prod-card--featured .prod-card__name{color:#fff;}
 .prod-card__tagline{font-size:13px;font-style:italic;color:rgba(28,17,11,0.5);margin-bottom:24px;line-height:1.5;}
 .prod-card--featured .prod-card__tagline{color:rgba(255,255,255,0.5);}
-.prod-card__outcome{font-size:13px;font-weight:700;color:var(--bp);background:rgba(241,90,36,0.08);border:1px solid rgba(241,90,36,0.2);border-radius:10px;padding:10px 14px;margin-bottom:24px;}
+.prod-card__outcome{font-size:13px;font-weight:700;color:var(--bp);background:rgba(232,51,90,0.08);border:1px solid rgba(232,51,90,0.2);border-radius:10px;padding:10px 14px;margin-bottom:24px;}
 .prod-card__list{list-style:none;margin-bottom:28px;}
 .prod-card__list li{font-size:13px;color:rgba(28,17,11,0.65);padding:8px 0;border-bottom:1px solid rgba(28,17,11,0.06);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
 .prod-card--featured .prod-card__list li{color:rgba(255,255,255,0.65);border-color:rgba(255,255,255,0.08);}
-.prod-card__check{width:18px;height:18px;border-radius:50%;background:rgba(241,90,36,0.12);border:1px solid rgba(241,90,36,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
-.prod-card__coming{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px;background:rgba(241,90,36,0.06);border:1px solid rgba(241,90,36,0.15);border-radius:14px;text-align:center;}
+.prod-card__check{width:18px;height:18px;border-radius:50%;background:rgba(232,51,90,0.12);border:1px solid rgba(232,51,90,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.prod-card__coming{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px;background:rgba(232,51,90,0.06);border:1px solid rgba(232,51,90,0.15);border-radius:14px;text-align:center;}
 .prod-card__coming-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--bp);}
 .prod-card__coming-text{font-size:12px;color:rgba(28,17,11,0.5);}
-.prod-card--featured .prod-card__coming{background:rgba(241,90,36,0.1);border-color:rgba(241,90,36,0.25);}
+.prod-card--featured .prod-card__coming{background:rgba(232,51,90,0.1);border-color:rgba(232,51,90,0.25);}
 .prod-card--featured .prod-card__coming-text{color:rgba(255,255,255,0.45);}
 /* ─── ABSIDI STORY ───────────────────────────── */
 .story{background:var(--dark);padding:96px 0;}
@@ -711,7 +711,7 @@ body.site-light .products{background:#F4E8EC;}
 .story__text .section-sub{color:rgba(255,255,255,0.55);max-width:520px;}
 .story__quote{background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.08);border-left:3px solid var(--bp);border-radius:0 16px 16px 0;padding:24px 28px;margin:32px 0;font-size:16px;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.7;}
 .story__creds{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;}
-.story__cred{font-size:12px;font-weight:600;color:var(--bl);background:rgba(241,90,36,0.1);border:1px solid rgba(241,90,36,0.2);border-radius:20px;padding:6px 14px;}
+.story__cred{font-size:12px;font-weight:600;color:var(--bl);background:rgba(232,51,90,0.1);border:1px solid rgba(232,51,90,0.2);border-radius:20px;padding:6px 14px;}
 /* ─── UNFAIR ADVANTAGES ──────────────────────── */
 .ufa{background:var(--lbg);padding:96px 0;}
 body.site-light .ufa{background:#F4E8EC;}
@@ -759,7 +759,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
 }
 .get-page__check{
   width:20px;height:20px;border-radius:50%;
-  background:rgba(241,90,36,0.15);border:1px solid rgba(241,90,36,0.3);
+  background:rgba(232,51,90,0.15);border:1px solid rgba(232,51,90,0.3);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
 .get-page .section-title{color:#fff;}
@@ -768,7 +768,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
 /* ─── ABOUT US OVERLAY ──────────────────────── */
 .about-overlay{
   position:fixed;inset:0;z-index:1001;
-  background:#0F0905;overflow-y:auto;
+  background:#0D0508;overflow-y:auto;
   transform:translateX(100%);transition:transform .45s cubic-bezier(.4,0,.2,1);
 }
 .about-overlay.open{transform:translateX(0);}
@@ -875,7 +875,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
         <div class="nav__logo-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <rect x="2" y="3" width="18" height="14" rx="3" fill="white" opacity="0.95"/>
-            <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#F15A24" stroke-width="2.2"
+            <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#E8335A" stroke-width="2.2"
                   stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
@@ -967,7 +967,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
       </div>
 
       <div class="hero__stats">
-        <div style="border-left:2px solid rgba(241,90,36,0.4);padding-left:20px;">
+        <div style="border-left:2px solid rgba(232,51,90,0.4);padding-left:20px;">
           <div class="hero__stat-num" style="font-size:clamp(28px,4vw,44px);"><span>₱100K+</span></div>
           <div class="hero__stat-label" style="font-size:11px;">Avg Monthly Earnings</div>
         </div>
@@ -1061,7 +1061,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
         <div class="system-card__num">PILLAR 01</div>
         <div class="system-card__icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#E8335A" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
         <div class="system-card__title">Learn</div>
@@ -1074,8 +1074,8 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
         <div class="system-card__num">PILLAR 02</div>
         <div class="system-card__icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z" stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
-            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z" stroke="#E8335A" stroke-width="2" stroke-linecap="round"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#E8335A" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
         <div class="system-card__title">Build</div>
@@ -1088,7 +1088,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
         <div class="system-card__num">PILLAR 03</div>
         <div class="system-card__icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#E8335A" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
         <div class="system-card__title">Scale</div>
@@ -1136,10 +1136,10 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
         <p class="prod-card__tagline">"Get Your First Client System"</p>
         <div class="prod-card__outcome">🎯 Outcome: From zero experience → first paying VA client</div>
         <ul class="prod-card__list">
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>VA basics — skills &amp; tools overview</li>
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Portfolio builder kit</li>
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Client outreach scripts</li>
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>First client roadmap (step-by-step system)</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>VA basics — skills &amp; tools overview</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Portfolio builder kit</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Client outreach scripts</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>First client roadmap (step-by-step system)</li>
         </ul>
         <div class="prod-card__coming">
           <div class="prod-card__coming-label">🔒 Coming Soon</div>
@@ -1154,15 +1154,15 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
         <div class="prod-card__tier">CORE PRODUCT &middot; THE SCALER</div>
         <h3 class="prod-card__name">VA Scale System</h3>
         <p class="prod-card__tagline">"From Freelancer to 6-Figure Operator"</p>
-        <div class="prod-card__outcome" style="background:rgba(241,90,36,0.12);border-color:rgba(241,90,36,0.3);">🎯 Outcome: From overworked VA → systemized income earner</div>
+        <div class="prod-card__outcome" style="background:rgba(232,51,90,0.12);border-color:rgba(232,51,90,0.3);">🎯 Outcome: From overworked VA → systemized income earner</div>
         <ul class="prod-card__list">
-          <li><div class="prod-card__check" style="background:rgba(241,90,36,0.15);border-color:rgba(241,90,36,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Income scaling framework (₱30K → ₱100K+)</li>
-          <li><div class="prod-card__check" style="background:rgba(241,90,36,0.15);border-color:rgba(241,90,36,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Client management &amp; retention systems</li>
-          <li><div class="prod-card__check" style="background:rgba(241,90,36,0.15);border-color:rgba(241,90,36,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Delegation &amp; first hire blueprint</li>
-          <li><div class="prod-card__check" style="background:rgba(241,90,36,0.15);border-color:rgba(241,90,36,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Workflow automation &amp; SOP templates</li>
-          <li><div class="prod-card__check" style="background:rgba(241,90,36,0.15);border-color:rgba(241,90,36,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Pricing and positioning strategy</li>
+          <li><div class="prod-card__check" style="background:rgba(232,51,90,0.15);border-color:rgba(232,51,90,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Income scaling framework (₱30K → ₱100K+)</li>
+          <li><div class="prod-card__check" style="background:rgba(232,51,90,0.15);border-color:rgba(232,51,90,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Client management &amp; retention systems</li>
+          <li><div class="prod-card__check" style="background:rgba(232,51,90,0.15);border-color:rgba(232,51,90,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Delegation &amp; first hire blueprint</li>
+          <li><div class="prod-card__check" style="background:rgba(232,51,90,0.15);border-color:rgba(232,51,90,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Workflow automation &amp; SOP templates</li>
+          <li><div class="prod-card__check" style="background:rgba(232,51,90,0.15);border-color:rgba(232,51,90,0.35);"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Pricing and positioning strategy</li>
         </ul>
-        <div class="prod-card__coming" style="background:rgba(241,90,36,0.1);border-color:rgba(241,90,36,0.25);">
+        <div class="prod-card__coming" style="background:rgba(232,51,90,0.1);border-color:rgba(232,51,90,0.25);">
           <div class="prod-card__coming-label">🔒 Coming Soon</div>
           <div class="prod-card__coming-text" style="color:rgba(255,255,255,0.4);">Waitlist members get 40% off at launch</div>
           <button class="btn btn--primary" style="margin-top:8px;font-size:13px;padding:10px 22px;" onclick="navTo('#waitlist')">Join Waitlist Now</button>
@@ -1176,11 +1176,11 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
         <p class="prod-card__tagline">"Mentorship Program"</p>
         <div class="prod-card__outcome">🎯 Outcome: From solo VA → structured 6-digit business owner</div>
         <ul class="prod-card__list">
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Weekly coaching sessions with Absidi</li>
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Personal scaling roadmap</li>
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Business systems setup (done with guidance)</li>
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Hiring support + templates</li>
-          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg></div>Accountability structure &amp; optional talent pipeline access</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Weekly coaching sessions with Absidi</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Personal scaling roadmap</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Business systems setup (done with guidance)</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Hiring support + templates</li>
+          <li><div class="prod-card__check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg></div>Accountability structure &amp; optional talent pipeline access</li>
         </ul>
         <div class="prod-card__coming">
           <div class="prod-card__coming-label">🔒 Waitlist Open</div>
@@ -1212,31 +1212,31 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
         <ul class="get-page__feat-list">
           <li>
             <div class="get-page__check">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg>
             </div>
             Your own page at <strong style="color:#fff;margin-left:4px;">adsidi.co/[yourname]</strong>
           </li>
           <li>
             <div class="get-page__check">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg>
             </div>
             Showcase your portfolio, experience &amp; pricing packages
           </li>
           <li>
             <div class="get-page__check">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg>
             </div>
             Clients can contact you directly through adsidi.co
           </li>
           <li>
             <div class="get-page__check">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg>
             </div>
             Adsidi.co branding gives you instant credibility &amp; trust
           </li>
           <li>
             <div class="get-page__check">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="3" stroke-linecap="round"/></svg>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="3" stroke-linecap="round"/></svg>
             </div>
             One-time payment — yours to keep, fully customizable
           </li>
@@ -1287,7 +1287,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
             <div style="font-size:10px;font-weight:700;color:var(--bl);letter-spacing:1px;margin-bottom:6px;">STARTER</div>
             <div style="font-size:18px;font-weight:800;color:#fff;">$6<span style="font-size:12px;font-weight:500;color:rgba(255,255,255,0.45);">/hr</span></div>
           </div>
-          <div style="background:rgba(241,90,36,0.12);border:1.5px solid rgba(241,90,36,0.35);border-radius:12px;padding:14px 10px;text-align:center;">
+          <div style="background:rgba(232,51,90,0.12);border:1.5px solid rgba(232,51,90,0.35);border-radius:12px;padding:14px 10px;text-align:center;">
             <div style="font-size:10px;font-weight:700;color:var(--bl);letter-spacing:1px;margin-bottom:6px;">GROWTH</div>
             <div style="font-size:18px;font-weight:800;color:#fff;">$240<span style="font-size:12px;font-weight:500;color:rgba(255,255,255,0.45);">/mo</span></div>
           </div>
@@ -1437,7 +1437,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
       <!-- HR Manager -->
       <div class="team-card clickable" onclick="openPortfolio('hr')" title="View HR Manager's Portfolio">
         <div class="team-card__top">
-          <div class="team-avatar" style="background:linear-gradient(135deg,#1C110B,#3D2010);">H</div>
+          <div class="team-avatar" style="background:linear-gradient(135deg,#180B12,#3D1020);">H</div>
           <div>
             <div class="team-card__dept">Human Resources</div>
             <div class="team-card__name">HR Manager</div>
@@ -1572,7 +1572,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
       <!-- Quality & Operations -->
       <div class="team-card clickable" onclick="openPortfolio('qa')" title="View Q&amp;A Ops Lead's Portfolio">
         <div class="team-card__top">
-          <div class="team-avatar" style="background:linear-gradient(135deg,#1C110B,#F15A24);">Q</div>
+          <div class="team-avatar" style="background:linear-gradient(135deg,#180B12,#E8335A);">Q</div>
           <div>
             <div class="team-card__dept">Quality Control</div>
             <div class="team-card__name">Quality &amp; Ops Lead</div>
@@ -1641,7 +1641,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
       <!-- VA 2 -->
       <div class="va-card clickable" onclick="openPortfolio('rico')">
         <div class="va-card__header">
-          <div class="va-avatar" style="background:linear-gradient(135deg,#1C110B,#3D2010);">R</div>
+          <div class="va-avatar" style="background:linear-gradient(135deg,#180B12,#3D1020);">R</div>
           <div>
             <div class="va-card__name">Rico S.</div>
             <div class="va-card__role">Tech VA &bull; Automation Specialist</div>
@@ -1716,7 +1716,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
       <!-- VA 5 -->
       <div class="va-card clickable" onclick="openPortfolio('sofia')">
         <div class="va-card__header">
-          <div class="va-avatar" style="background:linear-gradient(135deg,#C43E10,#1C110B);">S</div>
+          <div class="va-avatar" style="background:linear-gradient(135deg,#C2194A,#180B12);">S</div>
           <div>
             <div class="va-card__name">Sofia L.</div>
             <div class="va-card__role">Admin VA &bull; Operations</div>
@@ -1742,10 +1742,10 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
       <div class="va-card" style="background:var(--dbg);display:flex;flex-direction:column;
            align-items:center;justify-content:center;text-align:center;padding:40px 32px;
            cursor:pointer;" onclick="navTo('#waitlist')">
-        <div style="width:56px;height:56px;border-radius:50%;border:2px dashed rgba(241,90,36,0.4);
+        <div style="width:56px;height:56px;border-radius:50%;border:2px dashed rgba(232,51,90,0.4);
              display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 5v14M5 12h14" stroke="#F15A24" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M12 5v14M5 12h14" stroke="#E8335A" stroke-width="2.5" stroke-linecap="round"/>
           </svg>
         </div>
         <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;">Your Story Could Be Next</div>
@@ -1826,19 +1826,19 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
       </form>
       <div class="waitlist__perks">
         <div class="waitlist__perk">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="2.5" stroke-linecap="round"/></svg>
           Early access to all 3 programs
         </div>
         <div class="waitlist__perk">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="2.5" stroke-linecap="round"/></svg>
           Launch-day pricing (waitlist exclusive)
         </div>
         <div class="waitlist__perk">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="2.5" stroke-linecap="round"/></svg>
           First access to limited mentorship spots
         </div>
         <div class="waitlist__perk">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="2.5" stroke-linecap="round"/></svg>
           No credit card required
         </div>
       </div>
@@ -1857,7 +1857,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
           <div class="footer__brand-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
               <rect x="2" y="3" width="18" height="14" rx="3" fill="white" opacity="0.95"/>
-              <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#F15A24" stroke-width="2.2"
+              <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#E8335A" stroke-width="2.2"
                     stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
@@ -1936,7 +1936,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
       <div style="width:28px;height:28px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
           <rect x="2" y="3" width="18" height="14" rx="3" fill="white" opacity="0.95"/>
-          <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#F15A24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#E8335A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
       <span style="font-size:14px;font-weight:800;color:#fff;">adsidi<span style="color:var(--bl);">.co</span></span>
@@ -2052,7 +2052,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
           <div class="modal__option-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
-                    stroke="#F15A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    stroke="#E8335A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <div>
@@ -2065,9 +2065,9 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
           <div class="modal__option-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z"
-                    stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+                    stroke="#E8335A" stroke-width="2" stroke-linecap="round"/>
               <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                    stroke="#F15A24" stroke-width="2" stroke-linecap="round"/>
+                    stroke="#E8335A" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <div>
@@ -2192,7 +2192,7 @@ const portfolioData = {
     ],
     outputs:[
       {type:'image', title:'Adsidi.co Brand Launch', caption:'Brand identity and digital presence rollout for the agency', color:'linear-gradient(135deg,#C43E10,#F15A24,#F5895A)'},
-      {type:'video', title:'Founder Story — Why I Built Adsidi.co', caption:'A short documentary on the mission behind the agency', color:'linear-gradient(135deg,#0F0905,#1C110B)'},
+      {type:'video', title:'Founder Story — Why I Built Adsidi.co', caption:'A short documentary on the mission behind the agency', color:'linear-gradient(135deg,#0D0508,#180B12)'},
       {type:'doc', title:'VA Training Framework', caption:'The curriculum that has trained 100+ credentialed VAs', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
       {type:'image', title:'Agency Growth — 2023 to 2025', caption:'Key milestones, client growth, and VA placements', color:'linear-gradient(135deg,#047857,#10B981)'},
       {type:'video', title:'Client Success Reel', caption:'Testimonials and results from Adsidi-placed VAs', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
@@ -2201,7 +2201,7 @@ const portfolioData = {
   },
   hr: {
     initial:'H', name:'HR Manager', title:'People & Talent Operations', dept:'Human Resources',
-    location:'Philippines', avatarGrad:'linear-gradient(135deg,#1C110B,#3D2010)',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#180B12,#3D1020)',
     availText:'Core Team', availColor:'#F5895A',
     tagline:"Every great team starts with the right people. I make sure Adsidi.co only brings in talent that truly makes a difference.",
     aboutCards:[
@@ -2221,7 +2221,7 @@ const portfolioData = {
       {name:'Team Build', price:'Custom', desc:'Multi-VA recruitment and team onboarding.', features:['Bulk talent sourcing','Team structure design','Full onboarding program','HR documentation setup','Ongoing welfare monitoring'], featured:false}
     ],
     outputs:[
-      {type:'doc', title:'VA Talent Acquisition Playbook', caption:'End-to-end hiring framework used across all Adsidi placements', color:'linear-gradient(135deg,#1C110B,#3D2010)'},
+      {type:'doc', title:'VA Talent Acquisition Playbook', caption:'End-to-end hiring framework used across all Adsidi placements', color:'linear-gradient(135deg,#180B12,#3D1020)'},
       {type:'doc', title:'Onboarding Checklist Template', caption:'72-hour VA onboarding process — zero drop-off rate', color:'linear-gradient(135deg,#C43E10,#F15A24)'},
       {type:'image', title:'Applicant Screening Dashboard', caption:'ATS workflow tracking 200+ monthly applicants per cycle', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
       {type:'video', title:'VA Interview Best Practices', caption:'Training video for clients on how to evaluate candidates', color:'linear-gradient(135deg,#047857,#10B981)'},
@@ -2351,7 +2351,7 @@ const portfolioData = {
   },
   qa: {
     initial:'Q', name:'Quality & Ops Lead', title:'Standards, Review & Compliance', dept:'Quality Control',
-    location:'Philippines', avatarGrad:'linear-gradient(135deg,#1C110B,#F15A24)',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#180B12,#E8335A)',
     availText:'Core Team', availColor:'#F5895A',
     tagline:"The Adsidi standard isn't just a label — it's a promise. I make sure we keep it.",
     aboutCards:[
@@ -2371,7 +2371,7 @@ const portfolioData = {
       {name:'Enterprise QA', price:'Custom', desc:'Dedicated QA layer for large VA teams.', features:['Dedicated QA officer','Weekly performance audits','Custom scoring rubrics','SLA breach alerts','Executive quality dashboard'], featured:false}
     ],
     outputs:[
-      {type:'doc', title:'VA Quality Scoring Rubric', caption:'Internal framework for evaluating VA output across all service types', color:'linear-gradient(135deg,#1C110B,#F15A24)'},
+      {type:'doc', title:'VA Quality Scoring Rubric', caption:'Internal framework for evaluating VA output across all service types', color:'linear-gradient(135deg,#180B12,#E8335A)'},
       {type:'image', title:'QA Dashboard — Q1 2025', caption:'Output quality metrics across 35 active VA placements', color:'linear-gradient(135deg,#C43E10,#F15A24)'},
       {type:'doc', title:'SLA Compliance Report', caption:'100% SLA adherence tracked over 12 consecutive months', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
       {type:'video', title:'Process Audit Walkthrough', caption:'How Adsidi QA reviews and scores VA deliverables', color:'linear-gradient(135deg,#047857,#10B981)'},
@@ -2411,7 +2411,7 @@ const portfolioData = {
   },
   rico: {
     initial:'R', name:'Rico S.', title:'Tech VA · Automation Specialist', dept:'Elite VA',
-    location:'Philippines', avatarGrad:'linear-gradient(135deg,#1C110B,#3D2010)',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#180B12,#3D1020)',
     availText:'Available Now', availColor:'#27AE60',
     tagline:"I build the systems that let your business run while you sleep.",
     aboutCards:[
@@ -2431,7 +2431,7 @@ const portfolioData = {
       {name:'Partner', price:'Custom', desc:'Ongoing tech VA with full-stack automation scope.', features:['Full-time availability','Complex systems','Priority support','Tech stack management','Weekly check-ins'], featured:false}
     ],
     outputs:[
-      {type:'image', title:'GoHighLevel CRM Build', caption:'Full pipeline + automation setup for a real estate client', color:'linear-gradient(135deg,#1C110B,#3D2010)'},
+      {type:'image', title:'GoHighLevel CRM Build', caption:'Full pipeline + automation setup for a real estate client', color:'linear-gradient(135deg,#180B12,#3D1020)'},
       {type:'video', title:'Zapier Workflow Demo', caption:'Automated lead capture to CRM to email in under 5 minutes', color:'linear-gradient(135deg,#4338CA,#6366F1)'},
       {type:'doc', title:'Client Automation Audit Report', caption:'Mapped 12 manual tasks → automated workflows', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
       {type:'image', title:'Sales Funnel — US Coaching Client', caption:'ClickFunnels build with upsell and email integration', color:'linear-gradient(135deg,#047857,#10B981)'},
@@ -2501,7 +2501,7 @@ const portfolioData = {
   },
   sofia: {
     initial:'S', name:'Sofia L.', title:'Admin VA · Operations Specialist', dept:'Elite VA',
-    location:'Philippines', avatarGrad:'linear-gradient(135deg,#C43E10,#1C110B)',
+    location:'Philippines', avatarGrad:'linear-gradient(135deg,#C2194A,#180B12)',
     availText:'Available Now', availColor:'#27AE60',
     tagline:"Behind every smooth-running business is someone making sure the backend never falls apart. That's me.",
     aboutCards:[
@@ -2521,7 +2521,7 @@ const portfolioData = {
       {name:'Partner', price:'Custom', desc:'Dedicated full-time operations VA.', features:['Full-time hours','Operations oversight','Team coordination','Custom deliverables','Weekly sync calls'], featured:false}
     ],
     outputs:[
-      {type:'doc', title:'Operations SOP Manual', caption:'50-page admin handbook built for a remote consulting firm', color:'linear-gradient(135deg,#C43E10,#1C110B)'},
+      {type:'doc', title:'Operations SOP Manual', caption:'50-page admin handbook built for a remote consulting firm', color:'linear-gradient(135deg,#C2194A,#180B12)'},
       {type:'image', title:'Asana Project Dashboard', caption:'Full project board for a 12-person remote team', color:'linear-gradient(135deg,#0369A1,#0EA5E9)'},
       {type:'doc', title:'Weekly Ops Report Template', caption:'Recurring report used by 3 clients every Monday', color:'linear-gradient(135deg,#047857,#10B981)'},
       {type:'video', title:'Google Workspace Org Walkthrough', caption:'How I structured 5 shared drives for a 20-person org', color:'linear-gradient(135deg,#6D28D9,#8B5CF6)'},
@@ -2774,8 +2774,8 @@ function submitWaitlist(e) {
   const form = e.target;
   form.innerHTML = `
     <div style="text-align:center;padding:48px 24px;">
-      <div style="width:72px;height:72px;border-radius:50%;background:rgba(241,90,36,0.15);border:1.5px solid rgba(241,90,36,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#F15A24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="width:72px;height:72px;border-radius:50%;background:rgba(232,51,90,0.15);border:1.5px solid rgba(232,51,90,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#E8335A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div style="font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;">You're on the list! 🎉</div>
       <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.65;max-width:360px;margin:0 auto;">We'll email you the moment the Adsidi Academy goes live — with exclusive early-access pricing locked in just for waitlist members.</p>
@@ -2916,7 +2916,7 @@ document.addEventListener('click', e => {
       <div class="about-overlay__logo-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <rect x="2" y="3" width="18" height="14" rx="3" fill="white" opacity="0.95"/>
-          <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#F15A24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 13L14 7M14 7H9M14 7V12" stroke="#E8335A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
       <span style="font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.3px;">adsidi<span style="color:var(--bl);">.co</span></span>
@@ -3073,7 +3073,7 @@ document.addEventListener('click', e => {
         <!-- QA -->
         <div class="about-photo-card">
           <div class="about-photo-card__placeholder">
-            <div class="about-photo-card__placeholder-avatar" style="background:linear-gradient(135deg,#C43E10,#1C110B);">Q</div>
+            <div class="about-photo-card__placeholder-avatar" style="background:linear-gradient(135deg,#C2194A,#180B12);">Q</div>
             <div class="about-photo-card__placeholder-name">QA Specialist</div>
             <div class="about-photo-card__placeholder-role">Quality Assurance</div>
             <div style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:4px;">Replace with photo</div>
@@ -3085,10 +3085,10 @@ document.addEventListener('click', e => {
         </div>
 
         <!-- Join the team card -->
-        <div class="about-photo-card" style="cursor:pointer;border-style:dashed;border-color:rgba(241,90,36,0.3);" onclick="navTo('#waitlist');closeAbout()">
+        <div class="about-photo-card" style="cursor:pointer;border-style:dashed;border-color:rgba(232,51,90,0.3);" onclick="navTo('#waitlist');closeAbout()">
           <div class="about-photo-card__placeholder">
-            <div style="width:72px;height:72px;border-radius:50%;border:2px dashed rgba(241,90,36,0.5);display:flex;align-items:center;justify-content:center;">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#F15A24" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <div style="width:72px;height:72px;border-radius:50%;border:2px dashed rgba(232,51,90,0.5);display:flex;align-items:center;justify-content:center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="#E8335A" stroke-width="2.5" stroke-linecap="round"/></svg>
             </div>
             <div style="font-size:15px;font-weight:700;color:#fff;margin-top:12px;">Join the Team</div>
             <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:4px;">Your journey starts on the waitlist</div>
