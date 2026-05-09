@@ -371,6 +371,52 @@ section{padding:96px 0;}
   border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .modal__header{position:relative;}
 
+/* ─── AUTH (LOGIN / REGISTER) MODAL ─────────── */
+.auth-modal-overlay{position:fixed;inset:0;z-index:2100;
+  background:rgba(15,9,5,0.88);backdrop-filter:blur(10px);
+  display:none;align-items:center;justify-content:center;padding:24px;}
+.auth-modal-overlay.open{display:flex;}
+.auth-modal{background:#fff;border-radius:28px;max-width:480px;width:100%;
+  max-height:calc(100vh - 48px);display:flex;flex-direction:column;
+  overflow:hidden;animation:modalIn .3s ease;position:relative;}
+.auth-field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:420px){
+  .auth-field-row{grid-template-columns:1fr;}
+}
+.auth-field-hint{font-size:11px;color:#9A8A7E;margin-top:4px;font-weight:500;}
+.auth-modal__header{background:var(--dbg);padding:28px 32px 32px;}
+.auth-modal__tag{font-size:10px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--bl);margin-bottom:8px;display:block;}
+.auth-modal__title{font-size:22px;font-weight:800;color:#fff;line-height:1.2;}
+.auth-modal__sub{font-size:13px;color:rgba(255,255,255,0.5);margin-top:8px;line-height:1.5;}
+.auth-modal__body{padding:28px 32px 24px;overflow-y:auto;flex:1;min-height:0;}
+.auth-tabs{display:flex;gap:4px;margin-bottom:22px;padding:4px;
+  background:var(--lbg);border-radius:12px;}
+.auth-tab{flex:1;padding:10px 14px;border-radius:10px;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:13px;font-weight:700;color:#7A6558;
+  background:transparent;transition:background .2s,color .2s;}
+.auth-tab.active{background:#fff;color:var(--dbg);box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.auth-field{margin-bottom:16px;}
+.auth-field label{display:block;font-size:11px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;color:#7A6558;margin-bottom:6px;}
+.auth-field input{width:100%;padding:12px 14px;border-radius:12px;
+  border:1.5px solid var(--lbr);font-family:var(--sans);font-size:15px;
+  color:var(--dbg);transition:border-color .2s;}
+.auth-field input:focus{outline:none;border-color:var(--bp);}
+.auth-error{font-size:13px;color:#C43E10;margin-bottom:12px;display:none;}
+.auth-error.visible{display:block;}
+.auth-modal__footer{padding:0 32px 28px;display:flex;flex-direction:column;gap:12px;}
+.auth-switch{font-size:13px;color:#7A6558;text-align:center;}
+.auth-switch button{background:none;border:none;color:var(--bp);font-weight:700;
+  cursor:pointer;font-family:var(--sans);font-size:inherit;text-decoration:underline;}
+.nav__auth{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.nav__auth-email{max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);}
+body.site-light .nav__auth-email{color:rgba(28,17,11,0.7);}
+.auth-modal__close{position:absolute;top:14px;right:16px;
+  width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);
+  border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;}
+
 /* ─── MOBILE NAV ─────────────────────────────── */
 .mobile-menu{display:none;position:fixed;inset:0;z-index:999;
   background:rgba(15,9,5,0.98);flex-direction:column;align-items:center;
@@ -898,6 +944,7 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
             <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="rgba(255,255,255,0.8)" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
+        <div class="nav__auth" id="navAuth"></div>
         <button class="btn btn--ghost" style="padding:10px 20px;font-size:13px;"
                 onclick="navTo('#system')">See How It Works</button>
         <button class="btn btn--primary" style="padding:10px 20px;font-size:13px;"
@@ -919,6 +966,8 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
   <span class="nav__link" onclick="openAbout();toggleMobileMenu()">About Us</span>
   <span class="nav__link" onclick="navTo('#team');toggleMobileMenu()">The Team</span>
   <span class="nav__link" style="color:var(--bl);" onclick="navTo('#waitlist');toggleMobileMenu()">Join Waitlist</span>
+  <button class="btn btn--outline" onclick="openLoginModal('signin');toggleMobileMenu()">Log in</button>
+  <button class="btn btn--outline" onclick="openLoginModal('register');toggleMobileMenu()">Create account</button>
   <button class="btn btn--primary" onclick="navTo('#waitlist');toggleMobileMenu()">Join the Waitlist — It's Free</button>
 </div>
 
@@ -2092,6 +2141,80 @@ body.site-light .ufa-card{background:rgba(255,255,255,0.9);}
 </div>
 
 <!-- ═══════════════════════════════════════
+     AUTH (LOGIN / REGISTER) MODAL
+═══════════════════════════════════════ -->
+<div class="auth-modal-overlay" id="authModal" onclick="if(event.target===this)closeLoginModal()">
+  <div class="auth-modal" onclick="event.stopPropagation()">
+    <div class="auth-modal__header">
+      <button type="button" class="auth-modal__close" onclick="closeLoginModal()" aria-label="Close">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6l12 12" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <span class="auth-modal__tag" id="authModalTag">Welcome back</span>
+      <div class="auth-modal__title" id="authModalTitle">Sign in to your account</div>
+      <p class="auth-modal__sub">Accounts are stored only in this browser. For production sites, connect a real backend and HTTPS.</p>
+    </div>
+    <div class="auth-modal__body">
+      <div class="auth-tabs" role="tablist">
+        <button type="button" class="auth-tab active" id="authTabSignin" onclick="setAuthTab('signin')">Sign in</button>
+        <button type="button" class="auth-tab" id="authTabRegister" onclick="setAuthTab('register')">Create account</button>
+      </div>
+      <div class="auth-error" id="authError" role="alert"></div>
+      <form id="authFormSignin" onsubmit="submitAuthSignin(event)">
+        <div class="auth-field">
+          <label for="authEmailIn">Email</label>
+          <input id="authEmailIn" type="email" autocomplete="email" required placeholder="you@company.com"/>
+        </div>
+        <div class="auth-field">
+          <label for="authPassIn">Password</label>
+          <input id="authPassIn" type="password" autocomplete="current-password" required minlength="6" placeholder="••••••••"/>
+        </div>
+        <div class="auth-modal__footer" style="padding:8px 0 0;">
+          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">Sign in</button>
+        </div>
+      </form>
+      <form id="authFormRegister" style="display:none;" onsubmit="submitAuthRegister(event)">
+        <div class="auth-field-row">
+          <div class="auth-field">
+            <label for="authSurname">Surname</label>
+            <input id="authSurname" type="text" autocomplete="family-name" required maxlength="80" placeholder="Dela Cruz"/>
+          </div>
+          <div class="auth-field">
+            <label for="authFirstName">First name</label>
+            <input id="authFirstName" type="text" autocomplete="given-name" required maxlength="80" placeholder="Juan"/>
+          </div>
+        </div>
+        <div class="auth-field">
+          <label for="authMiddleName">Middle name</label>
+          <input id="authMiddleName" type="text" autocomplete="additional-name" maxlength="80" placeholder="Santos"/>
+          <p class="auth-field-hint">Optional if you have no middle name.</p>
+        </div>
+        <div class="auth-field">
+          <label for="authDob">Date of birth</label>
+          <input id="authDob" type="date" autocomplete="bday" required/>
+        </div>
+        <div class="auth-field">
+          <label for="authEmailUp">Email</label>
+          <input id="authEmailUp" type="email" autocomplete="email" required placeholder="you@company.com"/>
+        </div>
+        <div class="auth-field">
+          <label for="authPassUp">Password</label>
+          <input id="authPassUp" type="password" autocomplete="new-password" required minlength="6" placeholder="At least 6 characters"/>
+        </div>
+        <div class="auth-field">
+          <label for="authPassUp2">Confirm password</label>
+          <input id="authPassUp2" type="password" autocomplete="new-password" required minlength="6" placeholder="Repeat password"/>
+        </div>
+        <div class="auth-modal__footer" style="padding:8px 0 0;">
+          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">Create account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
      SCRIPTS
 ═══════════════════════════════════════ -->
 <script>
@@ -2163,6 +2286,277 @@ function openCalendly() {
 document.getElementById('hireModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
+
+/* ══════════════════════════════════════════════════
+   AUTH (LOGIN / REGISTER) — client-side session
+══════════════════════════════════════════════════ */
+const AUTH_USERS_KEY = 'adsidi-auth-users';
+const AUTH_SESSION_KEY = 'adsidi-auth-session';
+const AUTH_SESSION_MS = 14 * 24 * 60 * 60 * 1000;
+
+async function authSha256Hex(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function authRandomSalt() {
+  const a = new Uint8Array(16);
+  crypto.getRandomValues(a);
+  return Array.from(a).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function authGetUsers() {
+  try {
+    const raw = localStorage.getItem(AUTH_USERS_KEY);
+    const arr = raw ? JSON.parse(raw) : [];
+    return Array.isArray(arr) ? arr : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function authSaveUsers(users) {
+  localStorage.setItem(AUTH_USERS_KEY, JSON.stringify(users));
+}
+
+function authNormalizeEmail(email) {
+  return String(email || '').trim().toLowerCase();
+}
+
+function authTrimName(s) {
+  return String(s || '').trim().replace(/\s+/g, ' ');
+}
+
+function authIsValidPersonName(s, required) {
+  const t = authTrimName(s);
+  if (!required && !t) return true;
+  if (!t || t.length > 80) return false;
+  return /^[\p{L}\s'\-\.]+$/u.test(t);
+}
+
+function authValidateDob(isoDate) {
+  if (!isoDate || !/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) return 'Enter a valid date of birth.';
+  const parts = isoDate.split('-').map(Number);
+  const y = parts[0];
+  const m = parts[1];
+  const d = parts[2];
+  const dob = new Date(Date.UTC(y, m - 1, d));
+  if (dob.getUTCFullYear() !== y || dob.getUTCMonth() !== m - 1 || dob.getUTCDate() !== d) {
+    return 'Enter a valid date of birth.';
+  }
+  const now = new Date();
+  const todayUTC = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const dobUTC = Date.UTC(y, m - 1, d);
+  if (dobUTC >= todayUTC) return 'Date of birth must be in the past.';
+  const oldest = new Date(now);
+  oldest.setFullYear(oldest.getFullYear() - 120);
+  const oldestUTC = Date.UTC(oldest.getFullYear(), oldest.getMonth(), oldest.getDate());
+  if (dobUTC < oldestUTC) return 'Please enter a realistic date of birth.';
+  return null;
+}
+
+function authGetSession() {
+  try {
+    const raw = localStorage.getItem(AUTH_SESSION_KEY);
+    if (!raw) return null;
+    const s = JSON.parse(raw);
+    if (!s || !s.email || !s.expiresAt) return null;
+    if (Date.now() > s.expiresAt) {
+      localStorage.removeItem(AUTH_SESSION_KEY);
+      return null;
+    }
+    return s;
+  } catch (e) {
+    return null;
+  }
+}
+
+function authSetSession(email) {
+  localStorage.setItem(
+    AUTH_SESSION_KEY,
+    JSON.stringify({ email, expiresAt: Date.now() + AUTH_SESSION_MS })
+  );
+}
+
+function authClearSession() {
+  localStorage.removeItem(AUTH_SESSION_KEY);
+}
+
+function authShowError(msg) {
+  const el = document.getElementById('authError');
+  el.textContent = msg || '';
+  el.classList.toggle('visible', !!msg);
+}
+
+function setAuthTab(mode) {
+  const signin = document.getElementById('authTabSignin');
+  const register = document.getElementById('authTabRegister');
+  const formIn = document.getElementById('authFormSignin');
+  const formUp = document.getElementById('authFormRegister');
+  const tag = document.getElementById('authModalTag');
+  const title = document.getElementById('authModalTitle');
+  authShowError('');
+  if (mode === 'register') {
+    signin.classList.remove('active');
+    register.classList.add('active');
+    formIn.style.display = 'none';
+    formUp.style.display = 'block';
+    tag.textContent = 'Join Adsidi.co';
+    title.textContent = 'Create your account';
+  } else {
+    signin.classList.add('active');
+    register.classList.remove('active');
+    formIn.style.display = 'block';
+    formUp.style.display = 'none';
+    tag.textContent = 'Welcome back';
+    title.textContent = 'Sign in to your account';
+  }
+}
+
+function openLoginModal(tab) {
+  closeModal();
+  closeAbout();
+  authShowError('');
+  setAuthTab(tab === 'register' ? 'register' : 'signin');
+  document.getElementById('authModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => {
+    const focusId = tab === 'register' ? 'authSurname' : 'authEmailIn';
+    const el = document.getElementById(focusId);
+    if (el) el.focus();
+  }, 100);
+}
+
+function closeLoginModal() {
+  document.getElementById('authModal').classList.remove('open');
+  document.body.style.overflow = '';
+  authShowError('');
+}
+
+function renderNavAuth() {
+  const wrap = document.getElementById('navAuth');
+  if (!wrap) return;
+  wrap.textContent = '';
+  const session = authGetSession();
+  if (session && session.email) {
+    const span = document.createElement('span');
+    span.className = 'nav__auth-email';
+    span.title = session.email;
+    span.textContent = session.email;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn--outline';
+    btn.style.cssText = 'padding:10px 16px;font-size:13px;';
+    btn.textContent = 'Log out';
+    btn.addEventListener('click', logout);
+    wrap.appendChild(span);
+    wrap.appendChild(btn);
+  } else {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn--outline';
+    btn.style.cssText = 'padding:10px 18px;font-size:13px;';
+    btn.textContent = 'Log in';
+    btn.addEventListener('click', () => openLoginModal('signin'));
+    wrap.appendChild(btn);
+  }
+}
+
+async function submitAuthSignin(e) {
+  e.preventDefault();
+  authShowError('');
+  const email = authNormalizeEmail(document.getElementById('authEmailIn').value);
+  const password = document.getElementById('authPassIn').value;
+  const users = authGetUsers();
+  const user = users.find(u => u.email === email);
+  if (!user) {
+    authShowError('No account found for that email. Create one first.');
+    return;
+  }
+  const hash = await authSha256Hex(user.salt + password);
+  if (hash !== user.passHash) {
+    authShowError('Incorrect password.');
+    return;
+  }
+  authSetSession(email);
+  closeLoginModal();
+  renderNavAuth();
+  document.getElementById('authPassIn').value = '';
+}
+
+async function submitAuthRegister(e) {
+  e.preventDefault();
+  authShowError('');
+  const surname = authTrimName(document.getElementById('authSurname').value);
+  const firstName = authTrimName(document.getElementById('authFirstName').value);
+  const middleName = authTrimName(document.getElementById('authMiddleName').value);
+  const dateOfBirth = document.getElementById('authDob').value;
+  const email = authNormalizeEmail(document.getElementById('authEmailUp').value);
+  const p1 = document.getElementById('authPassUp').value;
+  const p2 = document.getElementById('authPassUp2').value;
+
+  if (!authIsValidPersonName(surname, true)) {
+    authShowError('Enter a valid surname (letters, spaces, hyphens, or periods).');
+    return;
+  }
+  if (!authIsValidPersonName(firstName, true)) {
+    authShowError('Enter a valid first name (letters, spaces, hyphens, or periods).');
+    return;
+  }
+  if (middleName && !authIsValidPersonName(middleName, true)) {
+    authShowError('Enter a valid middle name, or leave it blank.');
+    return;
+  }
+  const dobErr = authValidateDob(dateOfBirth);
+  if (dobErr) {
+    authShowError(dobErr);
+    return;
+  }
+
+  if (p1 !== p2) {
+    authShowError('Passwords do not match.');
+    return;
+  }
+  if (p1.length < 6) {
+    authShowError('Use at least 6 characters for your password.');
+    return;
+  }
+  let users = authGetUsers();
+  if (users.some(u => u.email === email)) {
+    authShowError('That email is already registered. Sign in instead.');
+    return;
+  }
+  const salt = authRandomSalt();
+  const passHash = await authSha256Hex(salt + p1);
+  users.push({
+    email,
+    salt,
+    passHash,
+    createdAt: Date.now(),
+    surname,
+    firstName,
+    middleName: middleName || '',
+    dateOfBirth
+  });
+  authSaveUsers(users);
+  authSetSession(email);
+  closeLoginModal();
+  renderNavAuth();
+  document.getElementById('authSurname').value = '';
+  document.getElementById('authFirstName').value = '';
+  document.getElementById('authMiddleName').value = '';
+  document.getElementById('authDob').value = '';
+  document.getElementById('authEmailUp').value = '';
+  document.getElementById('authPassUp').value = '';
+  document.getElementById('authPassUp2').value = '';
+}
+
+function logout() {
+  authClearSession();
+  renderNavAuth();
+}
+
+renderNavAuth();
 
 /* ══════════════════════════════════════════════════
    PORTFOLIO SYSTEM
